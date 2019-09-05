@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx'
 
-import { login } from '../../service/user'
+import { login ,getuser} from '../../service/user'
 import { LoginForm, HttpType, HttpInfo } from '../../types/index'
 import { setToken, removeToken } from '@/utils/index'
 let account = {}
@@ -30,6 +30,11 @@ class User {
             return result.code;
 
         }
+    }
+    @action public async getuser(params:any):Promise<any>{
+        const result:any=await getuser(params)
+        console.log("------------"+result)
+        return result.data
     }
 }
 export default User
