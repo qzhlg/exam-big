@@ -1,0 +1,34 @@
+.top_content{
+    height: 160px;
+    background: lavender;
+    width: 100%;
+    border-radius: 10px;
+}
+.top_content span{
+    margin: 10px 15px;
+}
+.bottom_con{
+    height: 100%;
+    background: lavenderblush;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+.bottom_content{
+    width: 90%;
+    height: 100%;
+    
+}
+.dev{
+    height: 150px;
+    border-bottom: 1px #ccc solid;
+    display: flex;
+}
+.dev_left{
+    flex: 8;
+}
+.dev-right{
+    flex: 2;
+    text-align: center;
+    line-height: 150px;
+    
+}
