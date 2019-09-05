@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
     "experimentalDecorators": true,
     "baseUrl": "src",
     "paths": { 
@@ -8,9 +7,6 @@
         "./*"
       ]
     },
-=======
-    "baseUrl": ".",
->>>>>>> d996f4d8f0b13d53dcd2302a2bf6f6400a70481f
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
@@ -27,13 +23,7 @@
     "importHelpers": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-<<<<<<< HEAD
     "noUnusedLocals": false
-=======
-    "noUnusedLocals": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
->>>>>>> d996f4d8f0b13d53dcd2302a2bf6f6400a70481f
   },
   "exclude": [
     "node_modules",
