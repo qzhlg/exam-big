@@ -1,7 +1,6 @@
 import 'antd/dist/antd.css';
 import * as React from 'react';
-// import '/common/style.moudle.css'
-// import '@/common/style.moudle.css'
+
 import {Provider} from 'mobx-react'
 import Router from './router'
 import store from './store' 
