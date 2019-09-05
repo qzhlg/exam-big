@@ -41,10 +41,8 @@ class Textcluster extends React.Component<Props> {
             <li>类型操作</li>
           </ul>
           {list.length && list.map((item: any, index: number) => <ul key={index} className="list">
-
             <li>{item.questions_type_id}</li>
             <li>{item.questions_type_text}</li>
-
             <li>2</li>
           </ul>)}
         </div>
