@@ -5,3 +5,6 @@ import request from '../utils/request';
 export let login = (params: object)=>{
     return request.post('/user/login', params);
 } 
+export let getuser=(params:object)=>{
+    return request.get('/user/user',params)
+}
