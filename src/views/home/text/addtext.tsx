@@ -17,9 +17,7 @@ class Addtext extends React.Component<Props> {
     super(props)
     this.getList()
   }
-
   public state = {
-
     typelist: [],
     typelist_bot: []
   }
@@ -27,9 +25,6 @@ class Addtext extends React.Component<Props> {
    
     const { getExamType } = this.props.subject
     const { getQuestion } = this.props.question
-    
-
-
     getExamType()
     getQuestion()
   
