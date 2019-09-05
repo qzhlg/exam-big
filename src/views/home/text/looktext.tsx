@@ -51,9 +51,14 @@ class Looktext extends React.Component<Props>{
 
         <h2>查看试题</h2>
         <div className="top_content">
-          课程类型:{top_list.length && top_list.map((item: any) => <span key={item.subject_id}>
-            {item.subject_text}
-          </span>)}
+          <div className="top_cont">
+            <div className="top_shang">
+                 课程类型:
+            </div>
+           {top_list.length && top_list.map((item: any) => <span key={item.subject_id}>
+              {item.subject_text}
+            </span>)}
+          </div>
           <div className="m-input">
             <span>
               考试类型:
