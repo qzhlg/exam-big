@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react'
 import './look.css'
-import { Button, Select } from 'antd'
+import { Button, Select,Tag } from 'antd'
 const { Option } = Select;
-
+// const { CheckableTag } = Tag;
 interface Props {
   allquestion: any,
   subject: any,
@@ -24,7 +24,8 @@ class Looktext extends React.Component<Props>{
     list: [],
     top_list: [],
     typelist: [],
-    typelist_bot: []
+    typelist_bot: [],
+    // checked: true
   }
   public getList = async () => {
     const { getAllQuestion } = this.props.allquestion
@@ -50,6 +51,10 @@ class Looktext extends React.Component<Props>{
       this.props.history.push(`/home/detail/id=${id}`)
    
   }
+  // private handleChange = (checked:any )=> {
+  //   this.setState({ checked });
+  // };
+
   public render() {
     const { list, top_list, typelist, typelist_bot } = this.state
     return (
@@ -61,9 +66,13 @@ class Looktext extends React.Component<Props>{
             <div className="top_shang">
                  课程类型:
             </div>
-           {top_list.length && top_list.map((item: any) => <span key={item.subject_id}>
+           {top_list.length && top_list.map((item: any) => <span key={item.subject_id} style={{cursor: 'pointer'}}>
               {item.subject_text}
             </span>)}
+            
+            {/* {top_list.length && top_list.map((item: any) => <CheckableTag key={item.subject_id} {...this.props} checked={this.state.checked} onChange={this.handleChange} >
+              {item.subject_text}
+            </CheckableTag>)} */}
           </div>
           <div className="m-input">
             <span>
@@ -78,7 +87,7 @@ class Looktext extends React.Component<Props>{
                 {typelist_bot.length && typelist_bot.map((item: any) => <Option value={item.questions_type_text} key={item.questions_type_id}>{item.questions_type_text}</Option>)}
               </Select>
             </span>
-            <span><Button>查询</Button></span>
+            <span><Button type="primary" icon="search" className="search">查询</Button></span>
           </div>
         </div>
 

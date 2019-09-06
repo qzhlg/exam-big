@@ -8,11 +8,14 @@
     display: flex;
 }
 .top_nav li{
-    /* float: left; */
+
     flex: 1;
-    text-align: center;
+
+    text-align: left;
     line-height: 50px;
-    font-weight: 100;
+   
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
 }
 .list{
     display: flex;
@@ -23,4 +26,15 @@
 .list li{
     flex: 1;
     border-bottom: 1px #ccc solid;
+    text-align: left;
+}
+.add_btn{
+    width: 158px;
+    height: 40px;
+    padding: 0 40px!important;
+    border-radius: 4px!important;
+    border: 0!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background: linear-gradient(-90deg,#4e75ff,#0139fd)!important;
 }

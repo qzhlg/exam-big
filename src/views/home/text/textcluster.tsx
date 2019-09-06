@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react'
-import { Button } from 'antd'
+import { Button, Modal, Input } from 'antd'
 import './cluster.css'
 interface Props {
   question: any,
@@ -14,8 +14,29 @@ class Textcluster extends React.Component<Props> {
     this.getList()
   }
   public state = {
-    list: []
+    list: [],
+    visible: false
   }
+  public showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  public handleOk = (e: any) => {
+
+    this.setState({
+      visible: false,
+    });
+  };
+
+  public handleCancel = (e: any) => {
+
+    this.setState({
+      visible: false,
+    });
+  };
+
   public componentDidMount() {
     this.getList()
   }
@@ -28,12 +49,25 @@ class Textcluster extends React.Component<Props> {
       list: result
     })
   }
+
   public render() {
     const { list } = this.state
     return (
       <div className="box">
         <h2>试题分类</h2>
-        <Button type="primary">+添加试题</Button>
+
+        <Button type="primary" onClick={this.showModal} className="add_btn">
+          +添加试题
+        </Button>
+        <Modal
+          title="创建新类型"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <Input placeholder="请输入类型名称" />
+
+        </Modal>
         <div className="content">
           <ul className='top_nav'>
             <li>类型ID</li>
