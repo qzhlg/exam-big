@@ -17,15 +17,19 @@ html,body{
 .box-left{
     // overflow: auto;
     height: 100%;
-    
 }
 .ant-layout-header{
-    height: 64px;
+    height: 31px;
     background: #fff;
     .top-left{
-        width: 20%;
+        width: 120px;
+        margin: 16px 28px 16px 0;
         float: left;
-        margin: 5px 0;
+        line-height: 31px;
+        text-align: center;
+        color: #fff;
+        font-weight: 700;
+        font-family: "\5B8B\4F53";
         img{
             width: 100%;
             height: 100%;
@@ -34,5 +38,6 @@ html,body{
     .top-right{
         
         float: right;
+      
     }
 }

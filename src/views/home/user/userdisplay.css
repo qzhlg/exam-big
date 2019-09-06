@@ -1,0 +1,69 @@
+.box{
+    width: 100%;
+    height: 100%;
+    
+    
+    
+}
+.userZhan{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    align-items: center;
+}
+
+.userBton{
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.userSu{
+    width: 100%;
+    height:70px;
+    display: flex;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    align-items: center;
+    font-weight: bolder;
+}
+.userbox{
+    width: 100%;
+    height: 100%;
+}
+.userYong{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    
+}
+
+.userRight{
+    text-align: left
+}
+
+.userCont{
+    width: 100%;
+    height: 100%;
+  
+}
+.userTr{
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
