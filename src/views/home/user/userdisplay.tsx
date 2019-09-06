@@ -1,38 +1,8 @@
 import * as React from 'react';
 
 import { inject, observer } from 'mobx-react'
-import { Button,Table} from 'antd'
+import { Button} from 'antd'
 import './userdisplay.css'
-
-
-
-
-const columns = [
-  {
-    title: '用户名',
-    dataIndex: '用户名',
-   
-  },
-  {
-    title: '密码',
-    dataIndex: '密码',
-  },
-  {
-    title: '身份',
-    dataIndex: '身份',
-  },
-];
-
-
-const rowSelection = {
-  onChange: (selectedRowKeys: any, selectedRows: any) => {
-    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-  },
-  getCheckboxProps: (record: { name: string; }) => ({
-    disabled: record.name === 'Disabled User', 
-    name: record.name,
-  }),
-};
 
 interface Props {
   user:any,
@@ -49,13 +19,20 @@ class Userdisplay extends React.Component<Props> {
   }
   public state = {
     list: [],
+    current: 0,
+    index:''
     
   }
   
   public componentDidMount(){
     this.getList()
   }
-  
+  public itemNav = (index: any) =>{
+    this.setState({
+      current: index,
+    })
+    console.log(index)
+ }
   public getList = async () => {
     const { getuser } = this.props.user
     getuser()
@@ -67,7 +44,7 @@ class Userdisplay extends React.Component<Props> {
     
   }
     public render() {
-      const {list} =this.state
+      const {list,} =this.state
       console.log(list)
       
       return (
@@ -76,28 +53,18 @@ class Userdisplay extends React.Component<Props> {
             <div  className="userBton">
            {
              list.length&&list.map((item:any,index:number)=>  
-           <Button key={index}>{item.identity_text}</Button>
+           <Button key={index}  onClick={this.itemNav }>{item.identity_text}</Button>
              )}
              </div>
-             <div className="userSu">用户数据</div>
+
              <div className="userbox">
-    
-             <Table rowSelection={rowSelection} columns={columns}/>
-             
-           {/* <div className="ant-table-content">
-              <div className="ant-table-body">
-                <Table>
-                  <tbody className="ant-table-tbody">
-                    <tr className="ant-table-row ant-table-row-level-0">
-                      <td><div>wefr</div></td>
-                      <td>we</td>
-                      <td>erfg</td>
-                    </tr>
-                  </tbody>
-                </Table>
-              </div>
-           </div> */}
-                  
+                <div className="userSu">用户数据</div>
+             <div className="userConet">
+                  <span>用户名</span>
+                  <span>密码</span>
+                  <span>身份</span>
+             </div>
+
              <div className="userCont"> 
                 {
                    list.length&&list.map((item:any,index:number)=>
@@ -111,11 +78,7 @@ class Userdisplay extends React.Component<Props> {
                 </div>
                
               </div>    
-
-               
-              
-             
-         </div>
+             </div>
       );
     }
   }

@@ -3,6 +3,7 @@
   "defaultSeversity":"warning",
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "rules": {
+    "jsx-no-lambda": false,
     "interface-name" : [true, "never-prefix"],
     "no-console": [
       false
@@ -35,4 +36,5 @@
   true,
   "check-space"
   ]
+  
 }

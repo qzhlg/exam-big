@@ -75,7 +75,7 @@ tslint.json一些配置
       true,
       "check-space"
     ],
-
+   
   },
   bbbb
 ```
