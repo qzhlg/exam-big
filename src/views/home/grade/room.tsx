@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {inject,observer} from 'mobx-react'
-import { Table, Divider, Tag,Button,Modal ,Input} from 'antd';
+import { inject, observer } from 'mobx-react'
+import { Table, Divider, Tag, Button, Modal, Input, Select } from 'antd';
+const { Option } = Select;
 const columns = [
- 
+
   {
     title: '教室号',
     dataIndex: 'address',
@@ -14,19 +15,19 @@ const columns = [
     key: 'domain',
   },
 ];
-interface Props{
-  getroom:any
+interface Props {
+  getroom: any
 }
-const data:any = []
+const data: any = []
 @inject('getroom')
 @observer
 class Room extends React.Component<Props> {
-  constructor(props:any){
+  constructor(props: any) {
     super(props)
     this.getroommethod()
   }
-  public state={
-    list:[],
+  public state = {
+    list: [],
     visible: false
   }
   public showModal = () => {
@@ -43,45 +44,54 @@ class Room extends React.Component<Props> {
   };
 
   public handleCancel = (e: any) => {
-
     this.setState({
       visible: false,
     });
   };
-  public getroommethod=async()=>{
-    const roomdata=await this.props.getroom.getRoom()
+  public getroommethod = async () => {
+    const roomdata = await this.props.getroom.getRoom()
     console.log(roomdata)
     this.setState({
-      list:roomdata
+      list: roomdata
     })
   }
-    public render() {
-      const { list} = this.state
-      {list.map((item:any)=>{
+
+ 
+  public handleChange = (value: any) => {
+    console.log(`selected ${value}`);
+  }
+  public render() {
+    const { list } = this.state
+
+    {
+      list.map((item: any) => {
         data.push({
           key: item.room_id,
           address: item.room_text,
-          domain:'删除'
-      });
-      })}
-      return (
-        <div className="box">
-          <h2>教室管理</h2>
-         <Button type="primary" onClick={this.showModal} className="add_btn">
+          domain: '删除'
+        });
+      })
+    }
+    return (
+      <div className="box">
+        <h2>教室管理</h2>
+        <Button type="primary" onClick={this.showModal} className="add_btn">
           +添加试题
         </Button>
         <Modal
-          title="创建新类型"
+          title="添加班级"
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
-          <Input placeholder="请输入类型名称" />
-
+          <Input placeholder="教师名" />
+          <Select mode="tags" style={{ width: '100%' }} onChange={this.handleChange} tokenSeparators={[',']}>
+            {list.map((item: any, index: number) => <Option key={index}>{item.room_text}</Option>)}
+          </Select>
         </Modal>
-        <Table columns={columns}   dataSource={data}/>
-        </div>
-      );
-    }
+        <Table columns={columns} dataSource={data} />
+      </div>
+    );
   }
+}
 export default Room
