@@ -5,3 +5,6 @@ import request from '@/utils/request'
 export let getAllQuestion=(params:object)=>{
     return request.get('/exam/questions/condition',{params})
 }
+export let getDetail=(params:object,id:number)=>{
+    return request.get('/exam/questions/condition',{params:{id}})
+}

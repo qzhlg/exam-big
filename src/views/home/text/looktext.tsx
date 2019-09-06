@@ -8,7 +8,8 @@ interface Props {
   allquestion: any,
   subject: any,
   result: any,
-  question: any
+  question: any,
+  history:any
 }
 @inject('allquestion', 'subject', 'question')
 @observer
@@ -44,6 +45,11 @@ class Looktext extends React.Component<Props>{
       typelist_bot: resulttype
     })
   }
+  private changeroute=(id:any)=>{
+   
+      this.props.history.push(`/home/detail/id=${id}`)
+   
+  }
   public render() {
     const { list, top_list, typelist, typelist_bot } = this.state
     return (
@@ -51,9 +57,14 @@ class Looktext extends React.Component<Props>{
 
         <h2>查看试题</h2>
         <div className="top_content">
-          课程类型:{top_list.length && top_list.map((item: any) => <span key={item.subject_id}>
-            {item.subject_text}
-          </span>)}
+          <div className="top_cont">
+            <div className="top_shang">
+                 课程类型:
+            </div>
+           {top_list.length && top_list.map((item: any) => <span key={item.subject_id}>
+              {item.subject_text}
+            </span>)}
+          </div>
           <div className="m-input">
             <span>
               考试类型:
@@ -73,11 +84,11 @@ class Looktext extends React.Component<Props>{
 
         <div className="bottom_con">
           <div className="bottom_content">
-            {list.length && list.map((item: any, index: number) => <div className="dev" key={index}>
+            {list.length && list.map((item: any, index: number) => <div className="dev" key={index} onClick={()=>this.changeroute(item.questions_id)}>
               <div className="dev_left">
                 <p className="dev_title">{item.title}</p>
                 <ul>
-                  <Button>{item.questions_type_tex}</Button>
+                  <Button>{item.questions_type_text}</Button>
                   <Button>{item.subject_text}</Button>
                   <Button>{item.exam_name}</Button>
                 </ul>
@@ -86,7 +97,6 @@ class Looktext extends React.Component<Props>{
               <div className="dev_right">
                 <a href="">编辑</a>
               </div>
-
             </div>)}
           </div>
 

@@ -46,8 +46,6 @@ class Textcluster extends React.Component<Props> {
             <li>2</li>
           </ul>)}
         </div>
-
-
       </div>
     );
   }

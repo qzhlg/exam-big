@@ -45,6 +45,9 @@ import {Provider} from 'mobx-react'
 tslint.json一些配置
 可以使用console.log 不按字母新后顺序设为false 等等
 ```js
+
+用于测试提交发货苏苏闪电发货
+
 "rules": {
     "interface-name" : [true, "never-prefix"],
     "no-console": [
@@ -72,6 +75,8 @@ tslint.json一些配置
       true,
       "check-space"
     ],
-
+    //防止初心jsx的报错
+   "jsx-no-lambda": false
   },
+  
 ```

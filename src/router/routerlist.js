@@ -11,6 +11,7 @@ import Gread from '@/views/home/grade/grade';
 import Room from '@/views/home/grade/room';
 import Student from '@/views/home/grade/students';
 import Weit from '@/views/home/mark/weit';
+import Detail from '@/views/home/detail';
 
 
 
@@ -57,6 +58,9 @@ const routes = [{
         },{
             path:'/home/weit',
             component:Weit
+        },{
+            path:'/home/detail/:id',
+            component:Detail
         }
     ]
 }, {

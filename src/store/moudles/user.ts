@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx'
 
-import { login ,getuser} from '../../service/user'
+import { login,getuser } from '../../service/user'
 import { LoginForm, HttpType, HttpInfo } from '../../types/index'
 import { setToken, removeToken } from '@/utils/index'
 let account = {}

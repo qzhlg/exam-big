@@ -35,10 +35,14 @@ class Head extends React.Component {
                         <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551624718911&di=4a7004f8d71bd8da84d4eadf1b59e689&imgtype=0&src=http%3A%2F%2Fimg105.job1001.com%2Fupload%2Falbum%2F2014-10-15%2F1413365052_95IE3msH.jpg" alt="" />
 
                     </div>
+
                     <div className="top-right">
+                        <span className="ant-avatar ant-avatar-circle">
+                            <span className="ant-avatar-string">1</span>
+                        </span>
                         <Dropdown overlay={menu}>
                             <a className="ant-dropdown-link" href="#">
-                                chenmanjie <Icon type="down" />
+                                chenmanjie 
                             </a>
                         </Dropdown>
                     </div>
