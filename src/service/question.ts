@@ -5,3 +5,7 @@ import request from '@/utils/request'
 export let getQuestion=(params:object)=>{
     return request.get('/exam/getQuestionsType',{params})
 }
+// 添加试题
+export let addText=(params:object)=>{
+    return request.post('/exam/questions',params)
+}

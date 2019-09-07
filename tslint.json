@@ -19,7 +19,8 @@
         "named-imports-order":"lowercase-first"
       }
     ],
-    "member-ordering": false
+    "member-ordering": false,
+    "jsx-no-lambda": false
   },
   "linterOptions": {
     "exclude": [

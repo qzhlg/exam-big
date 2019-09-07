@@ -1,9 +1,16 @@
 .top_content{
     height: 200px;
-    background: lavender;
     width: 100%;
     border-radius: 10px;
    
+}
+
+.top_cont{
+    width: 100%;
+    height: 80px;
+    display: flex;
+   
+    flex-wrap: wrap;
 }
 
 .top_cont{
@@ -82,7 +89,19 @@
 }
 .dev_name a{
 font-size: 14px;
+
 }
+
 /* .dev-Shang{
     background: e6f7ff;
 } */
+.search{
+    width: 130px;
+    height: 32px;
+    padding: 0 40px!important;
+    border-radius: 4px!important;
+    border: 0!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background: linear-gradient(-90deg,#4e75ff,#0139fd)!important;
+}

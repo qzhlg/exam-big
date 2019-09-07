@@ -1,0 +1,25 @@
+.add_text{
+    width: 136px;
+    height: 32px;
+    padding: 0 40px!important;
+    border-radius: 4px!important;
+    border: 0!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background: linear-gradient(-90deg,#4e75ff,#0139fd)!important;
+    margin: 40px 0 0 0;
+
+}
+p{
+    margin: 15px 0;
+}
+.text{
+    width: 361.6px;
+    height: 32px;
+}
+.date{
+    margin: 10px 15px;
+}
+.select{
+    margin: 10px 0 20px 0;
+}

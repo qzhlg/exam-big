@@ -1,0 +1,26 @@
+.top_list{
+    width: 90%;
+    height: 58px;
+    width: 121px;
+    border-radius: 10px;
+    background: lightblue;
+}
+.bot_list{
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+h4{
+    float: left;
+}
+.dev_btn{
+    float: right;
+}
+.selecttype{
+    float: left;
+}
+.box{
+    width: 100%;
+    height: 100%;
+}

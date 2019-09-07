@@ -75,7 +75,14 @@ tslint.json一些配置
       true,
       "check-space"
     ],
-
+    //防止初心jsx的报错
+   "jsx-no-lambda": false
   },
-  bbbb
+  
+```
+```js
+详情页的数据，
+明天开始写添加用户的接口,
+添加考试的接口，
+还有添加，删除
 ```
