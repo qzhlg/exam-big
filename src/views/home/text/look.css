@@ -31,7 +31,7 @@
 }
 .top_shang{
     width: 80px;
-    height: 54px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,7 +42,7 @@
     height: 80px;
     display: flex;
     align-items: center;
-}
+} 
 .bottom_con{
     height: 100%;
     border-top: 20px solid #f7f8f9;

@@ -77,6 +77,7 @@ tslint.json一些配置
     ],
     //防止初心jsx的报错
    "jsx-no-lambda": false
+   
   },
   
 ```

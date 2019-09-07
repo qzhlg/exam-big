@@ -99,5 +99,4 @@ class Textcluster extends React.Component<Props> {
       </div>
     );
   }
-}
 export default Textcluster

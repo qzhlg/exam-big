@@ -1,0 +1,13 @@
+.box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.weit_Shang{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}

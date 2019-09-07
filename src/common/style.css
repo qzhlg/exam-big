@@ -66,3 +66,6 @@ html, body {
   transform: scale(1) translateX(-50%);
   color: #ccc;
 }
+.ant-avatar-circle{
+  margin: 0 10px;
+}
