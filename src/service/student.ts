@@ -3,5 +3,5 @@ import request from '@/utils/request'
 
 // 获取试题
 export const getStudent=(params:object)=>{
-    return request.get('/exam/student',{params})
+    return request.get('/manger/grade',{params})
 }

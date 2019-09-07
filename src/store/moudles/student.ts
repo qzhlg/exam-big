@@ -7,7 +7,7 @@ class Student {
         const result:any=await getStudent(params)
         console.log('result---',result)
         if(result.code===1){
-            return result.exam
+            return result.data
         }
     }
 }
