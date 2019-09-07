@@ -28,13 +28,6 @@ class Looktext extends React.Component<Props>{
     // checked: true
   }
   public getList = async () => {
-    const { getAllQuestion } = this.props.allquestion
-    const { getSubject, getExamType } = this.props.subject
-    const { getQuestion } = this.props.question
-    getAllQuestion()
-    getSubject()
-    getExamType()
-    getQuestion()
     const result = await this.props.allquestion.getAllQuestion()
     const subresult = await this.props.subject.getSubject()
     const typeresult = await this.props.subject.getExamType()

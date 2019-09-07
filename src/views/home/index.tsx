@@ -26,10 +26,7 @@ class Home extends React.Component<Prorout>{
           <Layout style={{ height: '100%',marginLeft: 200 }}>
             <Header style={{ background: '#fff', padding: 0 }} />
             <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>User</Breadcrumb.Item>
-                <Breadcrumb.Item>Bill</Breadcrumb.Item>
-              </Breadcrumb>
+              <Breadcrumb style={{ margin: '16px 0' }}/>
               <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
                 <Routerview routes={routes} />
               </div>

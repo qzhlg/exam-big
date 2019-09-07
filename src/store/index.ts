@@ -1,6 +1,7 @@
     
 import User from './moudles/user'
 import Question from './moudles/question'
+import addText from './moudles/question'
 import Allquestion from './moudles/allquestion'
 import Subject from './moudles/subject'
 import getDetail from './moudles/allquestion'
@@ -10,6 +11,7 @@ import getMessage from './moudles/grade'
 import Getexam from './moudles/exam'
 const user =new User()
 const question= new Question()
+const addtext=new addText()
 const allquestion =new Allquestion()
 const subject=new Subject()
 const getdetail=new getDetail()
@@ -20,6 +22,7 @@ const getexam=new Getexam()
 export default {
     user,
     question,
+    addtext,
     allquestion,
     subject,
     getdetail,
