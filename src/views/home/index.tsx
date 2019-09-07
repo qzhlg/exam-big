@@ -20,8 +20,9 @@ class Home extends React.Component<Prorout>{
 
     return (
       <div className='container'>
-    <Head/>
+      <Head/>
         <Layout style={{ height: 'auto', display: 'scroll', clear: 'both' }}>
+        
       <Leftaside/>
           <Layout style={{ height: '100%',marginLeft: 200 }}>
             <Header style={{ background: '#fff', padding: 0 }} />
@@ -35,7 +36,7 @@ class Home extends React.Component<Prorout>{
           </Layout>
           {/* <Rigthaside routes={routes}></Rigthaside> */}
         </Layout>
-      </div>
+      // </div>
     );
   }
 

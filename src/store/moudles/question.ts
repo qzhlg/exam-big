@@ -13,7 +13,10 @@ class Question {
     @action public async addText(params:any):Promise<any>{
         const result:any=await addText(params)
         console.log(result)
-        return result
+        if(result.code===1){
+            return result.data
+        }
+       
     }
 }
 export default Question

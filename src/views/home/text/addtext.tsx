@@ -14,9 +14,11 @@ interface Props {
   top_list: any,
   val:any,
   params:any,
-  values:any
+  values:any,
+  user:any
 }
-@inject('question', 'subject','addtext')
+
+@inject('question', 'subject','addtext','user')
 @observer
 class Addtext extends React.Component<Props>{
   constructor(props: any) {
@@ -34,66 +36,89 @@ class Addtext extends React.Component<Props>{
     exam_id:'',
     user_id:'',
     questions_answer:'',
-    title:'',
- 
+    title:''
   }
   
   public getList = async () => {
+    const { user_id } = this.state
     const result = await this.props.question.getQuestion()
     const typeresult = await this.props.subject.getExamType()
     const subresult = await this.props.subject.getSubject()
+    const userinfo=await this.props.user.usermsg()
+    console.log(userinfo)
     this.setState({
       typelist: typeresult,
       typelist_bot: result,
-      top_list: subresult
+      top_list: subresult,
+      user_id:userinfo.data.user_id
     })
+
   }
+  // 控制对话框的显示隐藏
   public showModal = () => {
     this.setState({
       visible: true,
     });
   };
+  // 标题的值
   public change=(e:any)=>{
     const { title } = this.state
     this.setState({
       title:e.target.value
     })
   }
-  public stemMethod=(e:any)=>{
+  // 题目主题
+  public stemMethod=(value:any)=>{
+    
     const { questions_stem } = this.state
+    console.log(value)
     this.setState({
-      questions_stem
+      questions_stem:value
     })
-    console.log(questions_stem)
+
   }
+  // 请选择考试类型
   public changeexam=(value:any)=>{
     this.setState({
       exam_id:value
     })
-    console.log(value)
+
   }
+  // 请选择课程类型
   public changeSelectsubject=(value:any)=>{
     this.setState({
       subject_id:value
     })
-    console.log(value)
+  
   }
+  // 请选择题目类型：
   public changeType=(value:any)=>{
     this.setState({
       questions_type_id:value
     })
-    console.log(value)
+    
   }
+  // 答案信息
+   public getanswer=(value:any)=>{
+     this.setState({
+       questions_answer:value
+     })
+
+   }
   public handleOk = async (e: any) => {
+    
     const { questions_type_id,questions_stem,subject_id,exam_id,user_id,questions_answer,title } = this.state
+   
     const params={questions_type_id,questions_stem,subject_id,exam_id,user_id,questions_answer,title }
+    console.log(params)
     const result=await this.props.addtext.addText(params)
-    console.log(result)
     this.setState({
       visible: false,
+    
     });
+ 
   };
-  
+
   public handleCancel = (e: any) => {
     this.setState({
       visible: false,
@@ -101,7 +126,7 @@ class Addtext extends React.Component<Props>{
   };
 
   public render() {
-    const { typelist_bot, typelist, top_list,title,questions_stem } = this.state
+    const { typelist_bot, typelist, top_list,title,questions_stem,questions_answer } = this.state
     
     return (
       <div className="add_box">
@@ -133,7 +158,7 @@ class Addtext extends React.Component<Props>{
           </Select>
           <p>答案信息</p>
 
-          <Editor />
+          <Editor onChange={this.getanswer} value={questions_answer}/>
 
           <Button className="submit" onClick={this.showModal} >
             提交

@@ -1,11 +1,29 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react'
-import { Button, Modal, Input } from 'antd'
+import { Button, Modal, Input,Table } from 'antd'
 import './cluster.css'
 interface Props {
   question: any,
   result: any
 }
+const columns=[
+  {
+    title: '类型ID',
+    dataIndex: 'idea',
+    key: 'idea',
+  },
+  {
+    title: '类型名称',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: '操作',
+    dataIndex: 'domain',
+    key: 'domain',
+  },
+]
+const data:any=[]
 @inject('question')
 @observer
 class Textcluster extends React.Component<Props> {
@@ -52,6 +70,13 @@ class Textcluster extends React.Component<Props> {
 
   public render() {
     const { list } = this.state
+    {list.map((item:any,index:number)=>{
+      data.push({
+        idea:item.questions_type_id,
+        name:item.questions_type_text,
+        key:index
+      })
+    })}
     return (
       <div className="box">
         <h2>试题分类</h2>
@@ -68,18 +93,9 @@ class Textcluster extends React.Component<Props> {
           <Input placeholder="请输入类型名称" />
 
         </Modal>
-        <div className="content">
-          <ul className='top_nav'>
-            <li>类型ID</li>
-            <li>类型名称</li>
-            <li>类型操作</li>
-          </ul>
-          {list.length && list.map((item: any, index: number) => <ul key={index} className="list">
-            <li>{item.questions_type_id}</li>
-            <li>{item.questions_type_text}</li>
-            <li>2</li>
-          </ul>)}
-        </div>
+      
+          <Table columns={columns} dataSource={data}/>
+       
       </div>
     );
   }

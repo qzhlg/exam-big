@@ -8,3 +8,6 @@ export let login = (params: object)=>{
 export let getuser=(params:object)=>{
     return request.get('/user/user',params)
 }
+export let usermsg=()=>{
+    return request.get('/user/userInfo')
+}

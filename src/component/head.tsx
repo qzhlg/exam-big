@@ -38,7 +38,7 @@ class Head extends React.Component {
 
                     <div className="top-right">
                         <span className="ant-avatar ant-avatar-circle">
-                            <span className="ant-avatar-string">1</span>
+                            <span className="ant-avatar-string"/>
                         </span>
                         <Dropdown overlay={menu}>
                             <a className="ant-dropdown-link" href="#">

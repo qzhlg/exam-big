@@ -7,5 +7,5 @@ export let getQuestion=(params:object)=>{
 }
 // 添加试题
 export let addText=(params:object)=>{
-    return request.post('/exam/questions')
+    return request.post('/exam/questions',params)
 }
