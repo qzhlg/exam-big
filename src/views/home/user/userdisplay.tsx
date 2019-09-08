@@ -51,6 +51,9 @@ class Userdisplay extends React.Component<Props> {
   }
   public getList = async () => {
     const result = await this.props.user.getuser()
+    result.map((item:any,index:number)=>{
+      item.id=index
+    })
     this.setState({
       list: result
     })
@@ -64,7 +67,7 @@ class Userdisplay extends React.Component<Props> {
           name: item.user_name,
           age: item.user_pwd,
           address: item.identity_text,
-          key:index
+         
         })
       })
     }
@@ -79,7 +82,10 @@ class Userdisplay extends React.Component<Props> {
         </div>
         <h2 className="userYong">用户数据</h2>
         <div>
-          <Table columns={columns} dataSource={data} size="middle" />
+          <Table columns={columns} dataSource={data} size="middle" rowKey={(record:any)=>{
+           
+            return record.id
+          }}/>
 
         </div>
 

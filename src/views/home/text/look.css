@@ -71,19 +71,12 @@
 .dev_left{
     flex: 8;
 }
-/* .dev-right{
-    font-size: 14px;
-    flex: 2;
-    text-align: center;
-    line-height: 150px;
-    
-    
-} */
-/* .ant-btn :nth-child(2){
-    width: 100px;
-    height: 30px;
-    background: #0139FD;
-} */
+.ant-btn-primary{
+    display: flex;
+    align-items: center;
+}
+
+
 .dev_title{
     font-size: 14px;
 }

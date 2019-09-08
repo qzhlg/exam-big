@@ -91,6 +91,7 @@ class Textlist extends React.Component<Info> {
          <Select defaultValue="" style={{ width: 200,display:'inline' }} className="selecttype">
             {top_list.length && top_list.map((item: any, index:number) => <Option value={item.exam_name} key={index}> {item.subject_text}</Option>)}
           </Select>
+          <Button>搜索</Button>
          </div>
          <div className="bot_list">
            <div className="list_btn">

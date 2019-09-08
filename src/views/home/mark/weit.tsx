@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react'
 import './weit.css'
-import { Table, Divider, Tag,Button,Modal ,Input,Select} from 'antd';
+import { Table,Card,Select} from 'antd';
 
 const { Option } = Select;
 const columns = [
@@ -14,14 +14,21 @@ const columns = [
     title: '操作',
     dataIndex: '',
     key: 'x',
-    render: () => <a>批卷</a>,
+    render: () => 
+      <Card onClick={()=>{
+        console.log('df')
+     
+      }}><a>批卷</a></Card>
+    ,
   },
 ];
 
 const data:any=[]
 interface Props {
   student:any,
-  result: any
+  result: any,
+  history:any,
+  
 }
 @inject('student')
 @observer
@@ -35,12 +42,14 @@ class Weit extends React.Component<Props> {
     list: [],
     visible: false
   }
+
+  
   public componentDidMount() {
     this.getList()
   }
 
+ 
   public getList = async () => {
-  
     const result = await this.props.student.getStudent()
     console.log(result)
     this.setState({
@@ -65,9 +74,9 @@ class Weit extends React.Component<Props> {
       return (
         <div className="box">
             <h2 className="weit_Shang">待批班级</h2>
-          
-              <Table columns={columns}dataSource={data}/>
+              <Table columns={columns}dataSource={data}
               
+              />
             </div>
       );
     }
