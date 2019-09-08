@@ -10,6 +10,7 @@ import getRoom from './moudles/grade'
 import getClass from './moudles/grade'
 import getMessage from './moudles/grade'
 import Getexam from './moudles/exam'
+import getStudent from './moudles/student'
 const user =new User()
 const question= new Question()
 const addtext=new addText()
@@ -20,6 +21,7 @@ const getroom=new getRoom()
 const getclass=new getClass()
 const getmessage=new getMessage()
 const getexam=new Getexam()
+const student=new getStudent()
 export default {
     user,
     question,
@@ -30,5 +32,6 @@ export default {
     getroom,
     getclass,
     getmessage,
-    getexam
+    getexam,
+    student
 }
