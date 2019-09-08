@@ -93,10 +93,10 @@ class Textcluster extends React.Component<Props> {
           <Input placeholder="请输入类型名称" />
 
         </Modal>
-      
           <Table columns={columns} dataSource={data}/>
        
       </div>
     );
   }
+}
 export default Textcluster
