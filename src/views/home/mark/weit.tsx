@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react'
 import './weit.css'
-import { Table, Divider, Tag,Button,Modal ,Input,Select } from 'antd';
+import { Table, Divider, Tag,Button,Modal ,Input,Select} from 'antd';
 
 const { Option } = Select;
 const columns = [
@@ -10,7 +10,6 @@ const columns = [
   { title: '阅卷状态', dataIndex: 'address', key: 'address' },
   { title: '课程名称', dataIndex: 'kecheng', key: 'kecheng' },
   { title: '成材率', dataIndex: 'chengcai', key: 'chengcai' },
-
   {
     title: '操作',
     dataIndex: '',
@@ -20,7 +19,6 @@ const columns = [
 ];
 
 const data:any=[]
-
 interface Props {
   student:any,
   result: any
@@ -28,21 +26,15 @@ interface Props {
 @inject('student')
 @observer
 
-
 class Weit extends React.Component<Props> {
   constructor(props:any){
     super(props)
     this.getList()
   }
-
   public state = {
     list: [],
     visible: false
   }
-
-
-
-
   public componentDidMount() {
     this.getList()
   }
@@ -54,7 +46,6 @@ class Weit extends React.Component<Props> {
     this.setState({
       list: result
     })
-    
   }
     public render() {
       const {list}=this.state 
@@ -74,15 +65,10 @@ class Weit extends React.Component<Props> {
       return (
         <div className="box">
             <h2 className="weit_Shang">待批班级</h2>
-         
-              <Table columns={columns}dataSource={data} 
-              
-              
-              />
+          
+              <Table columns={columns}dataSource={data}/>
               
             </div>
-        
-      
       );
     }
   }

@@ -35,14 +35,22 @@ class Userdisplay extends React.Component<Props> {
     this.getList()
   }
   public state = {
-    list: []
+    list: [],
+    index:'',
+    currun:0
   }
+
   public componentDidMount() {
     this.getList()
   }
+  public handleCli(){
+    console.log('handleCli')
+    // this.setState({
+      
+    // })
+  }
   public getList = async () => {
     const result = await this.props.user.getuser()
-
     this.setState({
       list: result
     })
@@ -53,7 +61,6 @@ class Userdisplay extends React.Component<Props> {
     {
       list.map((item: any, index: number) => {
         data.push({
-         
           name: item.user_name,
           age: item.user_pwd,
           address: item.identity_text,
@@ -67,7 +74,7 @@ class Userdisplay extends React.Component<Props> {
         <div className="userBton">
           {
             list.length && list.map((item: any, index: number) =>
-              <Button key={index}>{item.identity_text}</Button>
+              <Button key={index} onClick={this.handleCli}>{item.identity_text}</Button>
             )}
         </div>
         <h2 className="userYong">用户数据</h2>
