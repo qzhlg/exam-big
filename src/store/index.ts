@@ -1,5 +1,3 @@
-    
-    
 import User from './moudles/user'
 import Question from './moudles/question'
 import addText from './moudles/question'

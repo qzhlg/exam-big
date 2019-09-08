@@ -35,32 +35,32 @@ class Textcluster extends React.Component<Props> {
     list: [],
     visible: false
   }
+  // 控制对话框显示隐藏
   public showModal = () => {
     this.setState({
       visible: true,
     });
   };
-
+  // 确定
   public handleOk = (e: any) => {
 
     this.setState({
       visible: false,
     });
   };
-
+  // 取消
   public handleCancel = (e: any) => {
 
     this.setState({
       visible: false,
     });
   };
-
+  
   public componentDidMount() {
     this.getList()
   }
   public getList = async () => {
-    const { getQuestion } = this.props.question
-    getQuestion()
+   
     const result = await this.props.question.getQuestion()
     console.log(result)
     this.setState({
