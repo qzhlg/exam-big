@@ -1,21 +1,23 @@
-.detail_box{
-    width: 100%;
-    height: 100%;
-}
+
 .detail_content{
-    width: 90%;
-    height: 100%;
+    width: 100%;
+    height: 1000px;
    margin: auto;
+   display: flex;
 }
 .detail_left{
-    background: lavender;
-    width: 60%;
-    height: 100%;
-    float: left;
+    background: #fff;
+   
+    flex: 6;
+    border-radius: 10px;
+}
+.left_detail li{
+    height: 40px;
 }
 .detail_right{
-    background: lavenderblush;
-    width: 40%;
-    height: 100%;
-    float: right;
+    
+   
+    flex: 4;
+    margin-left: 10px;
+    border-radius: 10px;
 }

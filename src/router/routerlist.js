@@ -12,6 +12,7 @@ import Room from '@/views/home/grade/room';
 import Student from '@/views/home/grade/students';
 import Weit from '@/views/home/mark/weit';
 import Detail from '@/views/home/detail';
+import Rewrite from '@/views/home/rewrite';
 
 
 
@@ -61,6 +62,9 @@ const routes = [{
         },{
             path:'/home/detail/:id',
             component:Detail
+        },{
+            path:'/home/rewrite/:id',
+            component:Rewrite
         }
     ]
 }, {
