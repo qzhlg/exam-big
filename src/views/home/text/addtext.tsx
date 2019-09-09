@@ -69,9 +69,6 @@ class Addtext extends React.Component<Props>{
   }
   // 题目主题
   public stemMethod=(value:any)=>{
-    
-    const { questions_stem } = this.state
-    console.log(value)
     this.setState({
       questions_stem:value
     })

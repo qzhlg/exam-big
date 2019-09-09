@@ -79,6 +79,9 @@ tslint.json一些配置
    "jsx-no-lambda": false
    
   },
+  `js
+    获取参数
   
+  `
 ```
 

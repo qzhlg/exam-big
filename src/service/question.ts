@@ -9,3 +9,11 @@ export let getQuestion=(params:object)=>{
 export let addText=(params:object)=>{
     return request.post('/exam/questions',params)
 }
+// 添加试题类型
+export let addType=(params:object)=>{
+    return request.get('/exam/insertQuestionsType',{params})
+}
+// 更新试题
+ export let Updata=(id:any)=>{
+     return request.put('/exam/questions/update',id)
+ }

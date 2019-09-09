@@ -5,19 +5,34 @@ import Routerview from '../../router/routerview'
 import Head from '@/component/head'
 import Leftaside from '@/component/left'
 // import Rigthaside from '@/component/right'
-
+import {inject,observer} from 'mobx-react'
 const { Content, Header } = Layout;
 interface Prorout {
-  routes: any
+  routes: any,
+  showview:any
 }
-
+@inject('showview')
+@observer
 class Home extends React.Component<Prorout>{
+  public componentDidMount(){
+    this.getshowTitle()
+  }
+  public state={
+    title:[]
+  }
+  public getshowTitle=async()=>{
+    const showTitle=await this.props.showview.getViews()
+    console.log(showTitle.data)
+    this.setState({
+      title:showTitle.data
+    })
+  }
   public onCollapse = (collapsed: any) => {
     this.setState({ collapsed });
   };
   public render() {
     const { routes } = this.props
-
+    const { title } = this.state
     return (
       <div className='container'>
       <Head/>
@@ -25,9 +40,17 @@ class Home extends React.Component<Prorout>{
         
       <Leftaside/>
           <Layout style={{ height: '100%',marginLeft: 200 }}>
-            <Header style={{ background: '#fff', padding: 0 }} />
+            <Header style={{ background: '#fff', padding: 0 }} >
+              1
+            </Header>
             <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
               <Breadcrumb style={{ margin: '16px 0' }}/>
+                {/* <Breadcrumb style={{ margin: '16px 0' }}>
+    
+          {title.map((item:any)=>
+            <Breadcrumb.Item key={item.view_authority_id}>{item.view_authority_text}</Breadcrumb.Item>
+          )}
+        </Breadcrumb> */}
               <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
                 <Routerview routes={routes} />
               </div>

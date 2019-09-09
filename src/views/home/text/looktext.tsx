@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react'
 import './look.css'
-import { Button, Select,Tag } from 'antd'
+import { Button, Select, Table, Divider, Tag } from 'antd'
 const { Option } = Select;
 // const { CheckableTag } = Tag;
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   subject: any,
   result: any,
   question: any,
-  history:any
+  history: any
 }
 @inject('allquestion', 'subject', 'question')
 @observer
@@ -24,11 +24,10 @@ class Looktext extends React.Component<Props>{
     list: [],
     top_list: [],
     typelist: [],
-    typelist_bot: [],
-    // checked: true
+    typelist_bot: []
   }
   public getList = async () => {
-   
+
     const result = await this.props.allquestion.getAllQuestion()
     const subresult = await this.props.subject.getSubject()
     const typeresult = await this.props.subject.getExamType()
@@ -40,15 +39,20 @@ class Looktext extends React.Component<Props>{
       typelist_bot: resulttype
     })
   }
-  private changeroute=(id:any)=>{
-   
-      this.props.history.push(`/home/detail/id=${id}`)
-   
+  // 跳详情
+  private dropDetail = (id: any,item:any) => {
+    this.props.history.push({
+      pathname:`/home/detail/id=${id}`,
+      state:{id,item}
+    })
   }
-  // private handleChange = (checked:any )=> {
-  //   this.setState({ checked });
-  // };
-
+  // 从新编辑
+  public dropRewrite=(id: any,item: any)=>{
+    this.props.history.push({
+      pathname:`/home/rewrite/id=${id}`,
+      state:{id,item}
+    })
+  } 
   public render() {
     const { list, top_list, typelist, typelist_bot } = this.state
     return (
@@ -58,15 +62,12 @@ class Looktext extends React.Component<Props>{
         <div className="top_content">
           <div className="top_cont">
             <div className="top_shang">
-                 课程类型:
+              课程类型:
             </div>
-           {top_list.length && top_list.map((item: any) => <span key={item.subject_id} style={{cursor: 'pointer'}}>
+            {top_list.length && top_list.map((item: any) => <span key={item.subject_id} style={{ cursor: 'pointer' }}>
               {item.subject_text}
             </span>)}
-            
-            {/* {top_list.length && top_list.map((item: any) => <CheckableTag key={item.subject_id} {...this.props} checked={this.state.checked} onChange={this.handleChange} >
-              {item.subject_text}
-            </CheckableTag>)} */}
+
           </div>
           <div className="m-input">
             <span>
@@ -85,24 +86,41 @@ class Looktext extends React.Component<Props>{
           </div>
         </div>
 
-        <div className="bottom_con">
-          <div className="bottom_content">
-            {list.length && list.map((item: any, index: number) => <div className="dev" key={index} onClick={()=>this.changeroute(item.questions_id)}>
-              <div className="dev_left">
-                <p className="dev_title">{item.title}</p>
-                <ul>
-                  <Button>{item.questions_type_text}</Button>
-                  <Button>{item.subject_text}</Button>
-                  <Button>{item.exam_name}</Button>
-                </ul>
-                <p className="dev_name"> <a href="">{item.user_name}发布</a></p>
-              </div>
-              <div className="dev_right">
-                <a href="">编辑</a>
-              </div>
-            </div>)}
-          </div>
+        <div className="content_look">
+          <div className="list-subject-item">
+          {list &&
+            list.map((item: any) => {
+              return (
+                <li key={item.questions_id}>
+                  <div>
+                    <span>{item.title}</span>
+                  </div>
+                  <div>
+                    <p
+                        onClick={()=>this.dropDetail(item.questions_id,item)}
+                    >
+                      <span>
+                        {item.questions_type_text}
+                      </span>
+                      <span>{item.subject_text}</span>
+                      <span>{item.exam_name}</span>
+                    </p>
+                    <span
+                      className="write-box"
+                      onClick={()=>this.dropRewrite(item.questions_id,item)}
+                    >
+                      编辑
+                         </span>
+                  </div>
 
+                  <div>
+                    <span>{item.user_name}发布</span>
+                  </div>
+                </li>
+              );
+            })}
+          </div>
+        
         </div>
 
       </div>
