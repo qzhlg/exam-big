@@ -5,6 +5,7 @@ import './add.css'
 import { Input, Button, Select, Modal } from 'antd'
 const { Option } = Select;
 interface Props {
+  history:any,
   question: any,
   addtext:any,
   value: any,
@@ -75,7 +76,7 @@ class Addtext extends React.Component<Props>{
 
   }
   // 请选择考试类型
-  public changeexam=(value:any)=>{
+  public changeexamed=(value:any)=>{
     this.setState({
       exam_id:value
     })
@@ -109,6 +110,7 @@ class Addtext extends React.Component<Props>{
     const params={questions_type_id,questions_stem,subject_id,exam_id,user_id,questions_answer,title }
     console.log(params)
     const result=await this.props.addtext.addText(params)
+    this.props.history.replace('/')
     this.setState({
       visible: false,
     
@@ -138,7 +140,7 @@ class Addtext extends React.Component<Props>{
           <Editor onChange={this.stemMethod} value={questions_stem} />
 
           <p>请选择考试类型:</p>
-          <Select defaultValue="周考一" style={{ width: 200 }} className="select" onChange={this.changeexam}>
+          <Select defaultValue="周考一" style={{ width: 200 }} className="select" onChange={this.changeexamed}>
             {typelist.length && typelist.map((item: any) => <Option value={item.exam_id} key={item.exam_id}>{item.exam_name}</Option>)}
           </Select>
           <p>请选择课程类型:</p>

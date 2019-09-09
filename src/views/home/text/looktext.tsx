@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react'
 import './look.css'
-import { Button, Select, Table, Divider, Tag } from 'antd'
+import { Button, Select } from 'antd'
 const { Option } = Select;
 // const { CheckableTag } = Tag;
 interface Props {
@@ -40,19 +40,19 @@ class Looktext extends React.Component<Props>{
     })
   }
   // 跳详情
-  private dropDetail = (id: any,item:any) => {
+  private dropDetail = (id: any, item: any) => {
     this.props.history.push({
-      pathname:`/home/detail/id=${id}`,
-      state:{id,item}
+      pathname: `/home/detail/id=${id}`,
+      state: { id, item }
     })
   }
   // 从新编辑
-  public dropRewrite=(id: any,item: any)=>{
+  public dropRewrite = (id: any, item: any) => {
     this.props.history.push({
-      pathname:`/home/rewrite/id=${id}`,
-      state:{id,item}
+      pathname: `/home/rewrite/id=${id}`,
+      state: { id, item }
     })
-  } 
+  }
   public render() {
     const { list, top_list, typelist, typelist_bot } = this.state
     return (
@@ -88,39 +88,39 @@ class Looktext extends React.Component<Props>{
 
         <div className="content_look">
           <div className="list-subject-item">
-          {list &&
-            list.map((item: any) => {
-              return (
-                <li key={item.questions_id}>
-                  <div>
-                    <span>{item.title}</span>
-                  </div>
-                  <div>
-                    <p
-                        onClick={()=>this.dropDetail(item.questions_id,item)}
-                    >
-                      <span>
-                        {item.questions_type_text}
-                      </span>
-                      <span>{item.subject_text}</span>
-                      <span>{item.exam_name}</span>
-                    </p>
-                    <span
-                      className="write-box"
-                      onClick={()=>this.dropRewrite(item.questions_id,item)}
-                    >
-                      编辑
+            {list &&
+              list.map((item: any) => {
+                return (
+                  <li key={item.questions_id}>
+                    <div>
+                      <span>{item.title}</span>
+                    </div>
+                    <div>
+                      <p
+                        onClick={() => this.dropDetail(item.questions_id, item)}
+                      >
+                        <span>
+                          {item.questions_type_text}
+                        </span>
+                        <span>{item.subject_text}</span>
+                        <span>{item.exam_name}</span>
+                      </p>
+                      <span
+                        className="write-box"
+                        onClick={() => this.dropRewrite(item.questions_id, item)}
+                      >
+                        编辑
                          </span>
-                  </div>
+                    </div>
 
-                  <div>
-                    <span>{item.user_name}发布</span>
-                  </div>
-                </li>
-              );
-            })}
+                    <div>
+                      <span>{item.user_name}发布</span>
+                    </div>
+                  </li>
+                );
+              })}
           </div>
-        
+
         </div>
 
       </div>

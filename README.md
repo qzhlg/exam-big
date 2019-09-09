@@ -77,7 +77,10 @@ tslint.json一些配置
     ],
     //防止初心jsx的报错
    "jsx-no-lambda": false
-   
+   // 声明let 变量
+    "prefer-const": false,
+    // 可以声明带有下划线的变量
+      "variable-name": false
   },
   `js
     获取参数

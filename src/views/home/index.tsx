@@ -9,30 +9,36 @@ import {inject,observer} from 'mobx-react'
 const { Content, Header } = Layout;
 interface Prorout {
   routes: any,
-  showview:any
+  showview:any,
+  user:any
 }
-@inject('showview')
+@inject('showview','user')
 @observer
 class Home extends React.Component<Prorout>{
   public componentDidMount(){
     this.getshowTitle()
   }
   public state={
-    title:[]
+    title:[],
+    message:{}
   }
   public getshowTitle=async()=>{
+    const userinfo=await this.props.user.usermsg()
     const showTitle=await this.props.showview.getViews()
-    console.log(showTitle.data)
+    console.log(userinfo.data.user_id,"0000000000000000000")
     this.setState({
-      title:showTitle.data
+      title:showTitle.data,
+      message:userinfo.data.user_id
     })
+   
   }
   public onCollapse = (collapsed: any) => {
     this.setState({ collapsed });
   };
   public render() {
     const { routes } = this.props
-    const { title } = this.state
+    const { title,message } = this.state
+    console.log(message)
     return (
       <div className='container'>
       <Head/>
