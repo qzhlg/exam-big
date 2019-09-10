@@ -11,5 +11,6 @@ class Allquestion<Props>{
             return result.data
         }
     }
+   
 }
 export default Allquestion

@@ -111,9 +111,10 @@ class Gread extends React.Component<Props, any> {
   public delete = async (grade_id: any) => {
     await this.props.getclass.deleteClass({ grade_id })
   }
-  // 更新班级
-  public upDate = async (e: any) => {
+  // 更新
+  public upDate = async (grade_id: any) => {
     this.showModal()
+    await this.props.getclass.UpdateMessage({ grade_id })
   }
   public render() {
     const { list, grade_name, data, columns } = this.state
@@ -131,7 +132,6 @@ class Gread extends React.Component<Props, any> {
         >
           <Form labelCol={{ span: 5 }} wrapperCol={{ span: 12 }}>
             <Form.Item label="班级名">
-
               <Input placeholder="请输入班级名" value={grade_name} onChange={this.changeInput} />
             </Form.Item>
 

@@ -25,7 +25,6 @@ class Home extends React.Component<Prorout>{
   public getshowTitle=async()=>{
     const userinfo=await this.props.user.usermsg()
     const showTitle=await this.props.showview.getViews()
-    console.log(userinfo.data.user_id,"0000000000000000000")
     this.setState({
       title:showTitle.data,
       message:userinfo.data.user_id
@@ -38,7 +37,6 @@ class Home extends React.Component<Prorout>{
   public render() {
     const { routes } = this.props
     const { title,message } = this.state
-    console.log(message)
     return (
       <div className='container'>
       <Head/>
