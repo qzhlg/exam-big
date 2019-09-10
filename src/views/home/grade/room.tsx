@@ -27,7 +27,6 @@ class Room extends React.Component<Props> {
       },
       {
         title: '操作',
-    
         key: 'domain',
         render: (test: any) => (
           <p>

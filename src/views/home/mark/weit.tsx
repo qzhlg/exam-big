@@ -17,8 +17,6 @@ const columns = [
     render: () => 
       <Card onClick={(id)=>{
         console.log('df')
-        // this.props.history.push(`/manger/student/edit`,id)
-        
       }}><a>批卷</a></Card>
     ,
   },
@@ -33,7 +31,6 @@ interface Props {
   student:any,
   result: any,
   history:any,
-  
 }
 @inject('student')
 @observer
@@ -45,16 +42,11 @@ class Weit extends React.Component<Props> {
   }
   public state = {
     list: [],
-
     visible: false
   }
-
-  
   public componentDidMount() {
     this.getList()
   }
-
- 
   public getList = async () => {
     const result = await this.props.student.getStudent()
     console.log(result)
@@ -82,7 +74,6 @@ class Weit extends React.Component<Props> {
             <h2 className="weit_Shang">待批班级</h2>
               <Table columns={columns}dataSource={data} 
             />
-           
             </div>
       );
     }
