@@ -29,7 +29,6 @@ class Looktext extends React.Component<Props>{
   }
   // 获取所有数据
   public getList = async () => {
-
     const result = await this.props.allquestion.getAllQuestion()
     const subresult = await this.props.subject.getSubject()
     const typeresult = await this.props.subject.getExamType()
@@ -52,7 +51,7 @@ class Looktext extends React.Component<Props>{
   public dropRewrite = (id: any, item: any) => {
     this.props.history.push({
       pathname: `/home/rewrite/id=${id}`,
-      state: { id, item }
+      state: { id, item } 
     })
   }
   // 获取考试类型的id

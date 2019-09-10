@@ -96,7 +96,7 @@ class Student extends React.Component<Info> {
           >
             {list.map((item:any,index:number)=><Option value="" key={index}>{item.grade_name}</Option>)}
           </Select>
-          <Button className="add_btns">搜所</Button>
+          <Button className="add_btns">搜索</Button>
           <Button className="add_btns" >重置</Button>
         </div>
         <Table columns={columns} dataSource={data} />
