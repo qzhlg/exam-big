@@ -18,6 +18,9 @@ export let addClass=(params:any)=>{
     return request.post('/manger/grade',params)
 }
 // 删除班级
-export let deleteclass=()=>{
-    return request.delete('/manger/grade/delete')
+export let deleteClass=(params:any)=>{
+    return request.delete('/manger/grade/delete',{data:params})
+}
+export let Updatemsg=(params:any)=>{
+    return request.put('/manger/grade/update',{data:params})
 }

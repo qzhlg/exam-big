@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react'
 import './weit.css'
-import { Table,Card,Select} from 'antd';
-
+import { Table,Card,Select,Tabs} from 'antd';
+const TabPane=Tabs.TabPane
 const { Option } = Select;
 const columns = [
   { title: '班级名', dataIndex: 'name', key: 'name' },
@@ -23,6 +23,10 @@ const columns = [
   },
 ];
 
+function callback(key:any){
+  console.log(key)
+}
+
 const data:any=[]
 interface Props {
   student:any,
@@ -40,6 +44,7 @@ class Weit extends React.Component<Props> {
   }
   public state = {
     list: [],
+
     visible: false
   }
 
@@ -74,9 +79,9 @@ class Weit extends React.Component<Props> {
       return (
         <div className="box">
             <h2 className="weit_Shang">待批班级</h2>
-              <Table columns={columns}dataSource={data}
-              
-              />
+              <Table columns={columns}dataSource={data} 
+            />
+           
             </div>
       );
     }

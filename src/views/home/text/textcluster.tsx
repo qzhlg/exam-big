@@ -60,6 +60,7 @@ class Textcluster extends React.Component<Props> {
   }
   // 控制对话框显示隐藏
   public showModal = () => {
+   
     this.setState({
       visible: true,
     });
@@ -75,6 +76,7 @@ class Textcluster extends React.Component<Props> {
   };
   // 取消
   public handleCancel = (e: any) => {
+   
     this.setState({
       visible: false
     });

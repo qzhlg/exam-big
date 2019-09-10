@@ -1,57 +1,61 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react'
 import { Table, Button, Modal, Input, Form, Select } from 'antd';
-
 import { WrappedFormUtils } from 'antd/lib/form/Form'
 const { Option } = Select;
-
-const columns = [
-  {
-    title: '班级名',
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: '课程名',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: '教室号',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: '操作',
-    key: 'domain',
-    render: (e:any) => (<span>
-      <a onClick={()=>{
-        console.log(e,'e')
-      }}>修改</a>|
-      <a>删除</a>
-    </span>)
-  },
-];
-const data: any = []
 interface Props {
   getclass: any,
   form: WrappedFormUtils,
-  onRow: any
+  onRow: any,
+  delete: any
 }
 @inject('getclass')
 @observer
 
 class Gread extends React.Component<Props, any> {
-  public componentDidMount(){
-  this.getclassmethod()
+  public componentDidMount() {
+    this.getclassmethod()
   }
   public state = {
+
     list: [],
     data: [],
     visible: false,
     grade_name: '',
     room_id: '',
-    subject_id: ''
+    subject_id: '',
+    columns: [
+      {
+        title: '班级名',
+        dataIndex: 'grade_name',
+        key: 'grade_name',
+      },
+      {
+        title: '课程名',
+        dataIndex: 'subject_text',
+        key: 'subject_text',
+      },
+      {
+        title: '教室号',
+        dataIndex: 'room_text',
+        key: 'room_text',
+      },
+      {
+        title: '操作',
+        key: 'domain',
+        render: (e: any) => (<span>
+          <a onClick={() => {
+            console.log(e, 'e')
+            const { grade_id, grade_name, room_id, room_text, subject_id, subject_text } = e
+            this.upDate(grade_id)
+          }}>修改</a>|
+          <a onClick={() => {
+            const { grade_id } = e
+            this.delete(grade_id)
+          }}>删除</a>
+        </span>)
+      }
+    ]
   }
   // 教室名
   public changeInput = (e: any) => {
@@ -61,7 +65,6 @@ class Gread extends React.Component<Props, any> {
   }
   // 教室id
   public roomId = (value: any) => {
-   
     this.setState({
       room_id: value
     })
@@ -81,10 +84,9 @@ class Gread extends React.Component<Props, any> {
   public handleOk = async (e: any) => {
     const { grade_name, room_id, subject_id } = this.state
     const params = { grade_name, room_id, subject_id }
-    console.log(params)
     await this.props.getclass.addClass(params)
     this.setState({
-      visible: false,
+      visible: false
     });
   };
 
@@ -95,32 +97,26 @@ class Gread extends React.Component<Props, any> {
   };
   public getclassmethod = async () => {
     const classdata = await this.props.getclass.getClass()
-    console.log(classdata)
-    classdata.map((item: any, index: number) => {
-      item.id = index
+    classdata.map((item: any, i: number) => {
+      this.setState({
+        data: classdata
+      })
     })
     this.setState({
       list: classdata
     })
   }
 
-
   // 删除
-  public delete = (record:any) => {
-    console.log(record)
-    console.log(columns)
+  public delete = async (grade_id: any) => {
+    await this.props.getclass.deleteClass({ grade_id })
+  }
+  // 更新班级
+  public upDate = async (e: any) => {
+    this.showModal()
   }
   public render() {
-    const { list, grade_name } = this.state
-    {
-      list.map((item: any) => {
-        data.push({
-          name: item.grade_name,
-          age: item.subject_text,
-          address: item.room_text
-        });
-      })
-    }
+    const { list, grade_name, data, columns } = this.state
     return (
       <div className="box">
         <h2>班级管理</h2>

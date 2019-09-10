@@ -30,20 +30,22 @@ class Room extends React.Component<Props> {
     list: [],
     visible: false
   }
+
   public showModal = () => {
     this.setState({
       visible: true,
     });
   };
-
+  
   public handleOk = (e: any) => {
-
+    
     this.setState({
       visible: false,
     });
   };
 
   public handleCancel = (e: any) => {
+    console.log('handleOk');
     this.setState({
       visible: false,
     });
@@ -59,6 +61,8 @@ class Room extends React.Component<Props> {
  
   public handleChange = (value: any) => {
     console.log(`selected ${value}`);
+
+    
   }
   public render() {
     const { list } = this.state
@@ -84,7 +88,7 @@ class Room extends React.Component<Props> {
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
-          <Input placeholder="教师名" />
+          <Input placeholder="教室号" />
           <Select mode="tags" style={{ width: '100%' }} onChange={this.handleChange} tokenSeparators={[',']}>
             {list.map((item: any, index: number) => <Option key={index}>{item.room_text}</Option>)}
           </Select>

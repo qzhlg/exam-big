@@ -2,7 +2,7 @@ import {action,observe} from 'mobx'
 
 
 // 引入获取试题的请求
-import {getRoom, getClass,getMessage,addClass} from '@/service/grade'
+import {getRoom, getClass,getMessage,addClass,deleteClass,Updatemsg} from '@/service/grade'
 class Room {
     // 获取房间号
     @action public async getRoom(params:any):Promise<any>{
@@ -29,6 +29,14 @@ class Room {
     // 添加班级
     @action public async addClass(params:any):Promise<any>{
         return await addClass(params)
+    }
+    // 删除班级
+    @action public async deleteClass(grade_id:any):Promise<any>{
+        return await deleteClass(grade_id)
+    }       
+    // 修改
+    @action public async Updatemsg(grade_id:any):Promise<any>{
+        return await this.Updatemsg(grade_id)
     }
 }
 export default Room
