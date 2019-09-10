@@ -11,3 +11,9 @@ export let getClass=(params:object)=>{
 export let getMessage=(params:object)=>{
     return request.get('/manger/student',{params})
 }
+export let deleteRoom =(params:object)=>{
+    return request.delete('/manger/room/delete',params)
+}
+export let addSiti=(params:object)=>{
+    return request.post('/manger/room',params)
+}

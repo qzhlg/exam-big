@@ -46,8 +46,7 @@ class Userdisplay extends React.Component<Props> {
   public handleCli(){
     console.log('handleCli')
     // this.setState({
-      
-    // })
+    // }).
   }
   public getList = async () => {
     const result = await this.props.user.getuser()

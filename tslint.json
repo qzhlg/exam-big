@@ -21,7 +21,8 @@
       }
     ],
     "member-ordering": false,
-    "jsx-no-lambda": false
+    "prefer-const": false,
+    "variable-name": false
   },
   "linterOptions": {
     "exclude": [

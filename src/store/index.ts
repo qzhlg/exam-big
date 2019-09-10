@@ -10,6 +10,7 @@ import getMessage from './moudles/grade'
 import Getexam from './moudles/exam'
 import getStudent from './moudles/student'
 import getViews from './moudles/showview'
+
 const user =new User()
 const question= new Question()
 const addtext=new addText()
@@ -34,5 +35,6 @@ export default {
     getmessage,
     getexam,
     student,
-    showview
+    showview,
+    
 }
