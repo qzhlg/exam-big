@@ -12,7 +12,6 @@ class Detail extends React.Component<Props>{
   
     public render() {
         const item=this.props.location.state.item
-        console.log(this.props.location.state.item)
         const {user_name,exam_name,questions_type_text,subject_text,questions_stem,questions_answer,title}=item
         return (
             <div className="detail_box">
@@ -34,7 +33,7 @@ class Detail extends React.Component<Props>{
                     <div className="detail_right">
                         答案信息：
                         {/* {questions_answer} */}
-                        <Editor value={questions_answer}/>
+                        <Editor value={questions_answer} style={{height:'auto'}}/>
                     </div>
                 </div>
 

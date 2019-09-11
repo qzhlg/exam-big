@@ -21,9 +21,12 @@ class Gread extends React.Component<Props, any> {
     list: [],
     data: [],
     visible: false,
+    disabled: false,// 是非选中
+    grade_id: '',
     grade_name: '',
     room_id: '',
     subject_id: '',
+    subject_text: '',
     columns: [
       {
         title: '班级名',
@@ -45,9 +48,7 @@ class Gread extends React.Component<Props, any> {
         key: 'domain',
         render: (e: any) => (<span>
           <a onClick={() => {
-            console.log(e, 'e')
-            const { grade_id, grade_name, room_id, room_text, subject_id, subject_text } = e
-            this.upDate(grade_id)
+            this.showModal(e, "reset")
           }}>修改</a>|
           <a onClick={() => {
             const { grade_id } = e
@@ -75,21 +76,63 @@ class Gread extends React.Component<Props, any> {
       subject_id: value
     })
   }
-  public showModal = () => {
+  public showModal = (e: any, type: string) => {
     this.setState({
       visible: true,
-    });
+    })
+    console.log(e, '--------------------')
+    if (type === "reset") {
+      this.setState({
+        disabled: true,// input失焦
+        grade_id: e.grade_id,
+        grade_name: e.grade_name, // 班级名
+        room_id: e.room_id,
+        subject_text: e.subject_text, // 所学课程
+        subject_id: e.subject_id // 课程名
+      })
+    } else {
+      console.log(123)
+      this.setState({
+        disabled: false,
+        grade_id: null,
+        grade_name: "请输入班级名",
+        room_id: null,
+        room_text: "请输入教室号",
+        subject_text: "请输入所学课程",
+        subject_id: null
+      })
+    }
+  
   };
 
   public handleOk = async (e: any) => {
-    const { grade_name, room_id, subject_id } = this.state
-    const params = { grade_name, room_id, subject_id }
-    await this.props.getclass.addClass(params)
     this.setState({
       visible: false
     });
+    const { grade_id } = this.state
+    let params = {}
+    if (this.state.grade_id) {
+      console.log(1)
+      params = {
+        grade_id: this.state.grade_id,
+        grade_name: this.state.grade_name,
+        subject_id: this.state.subject_id,
+        room_id: this.state.room_id
+      }
+      this.upData(params)
+    } else {
+      const { grade_name, room_id, subject_id } = this.state
+      params = { grade_name, room_id, subject_id }
+     this.addList(params)
+    }
+  
   };
-
+  public upData=async (params:any)=>{
+    let uplist= await this.props.getclass.UpdateMessage(params)
+  }
+  public addList=async (params:any)=>{
+    let addlist=await this.props.getclass.addClass(params)
+  }
   public handleCancel = (e: any) => {
     this.setState({
       visible: false,
@@ -98,6 +141,7 @@ class Gread extends React.Component<Props, any> {
   public getclassmethod = async () => {
     const classdata = await this.props.getclass.getClass()
     classdata.map((item: any, i: number) => {
+      item.id = i
       this.setState({
         data: classdata
       })
@@ -105,23 +149,20 @@ class Gread extends React.Component<Props, any> {
     this.setState({
       list: classdata
     })
+    console.log(classdata)
   }
 
   // 删除
   public delete = async (grade_id: any) => {
     await this.props.getclass.deleteClass({ grade_id })
   }
-  // 更新
-  public upDate = async (grade_id: any) => {
-    this.showModal()
-    await this.props.getclass.UpdateMessage({ grade_id })
-  }
+
   public render() {
-    const { list, grade_name, data, columns } = this.state
+    const { list, grade_name, data, columns, disabled } = this.state
     return (
       <div className="box">
         <h2>班级管理</h2>
-        <Button type="primary" onClick={this.showModal} className="add_btn">
+        <Button type="primary" onClick={() => this.showModal} className="add_btn">
           +添加班级
         </Button>
         <Modal
@@ -132,7 +173,7 @@ class Gread extends React.Component<Props, any> {
         >
           <Form labelCol={{ span: 5 }} wrapperCol={{ span: 12 }}>
             <Form.Item label="班级名">
-              <Input placeholder="请输入班级名" value={grade_name} onChange={this.changeInput} />
+              <Input placeholder="请输入班级名" value={grade_name} onChange={this.changeInput} disabled={disabled} />
             </Form.Item>
 
             <Form.Item label="教室号">
@@ -141,7 +182,7 @@ class Gread extends React.Component<Props, any> {
                 placeholder="请选择教室号"
                 onChange={this.roomId}
               >
-                {list.map((item: any) => <Option value={item.room_id} key={item.room_id}>{item.room_text}</Option>)}
+                {list.map((item: any) => <Option value={item.room_text} key={item.room_id}>{item.room_text}</Option>)}
               </Select>
             </Form.Item>
             <Form.Item label="课程名">
@@ -149,12 +190,14 @@ class Gread extends React.Component<Props, any> {
                 placeholder="请选择课程"
                 onChange={this.subjectId}
               >
-                {list.map((item: any) => <Option value={item.subject_id} key={item.grade_id}>{item.subject_text}</Option>)}
+                {list.map((item: any) => <Option value={item.subject_text} key={item.id}>{item.subject_text}</Option>)}
               </Select>
             </Form.Item>
           </Form>
         </Modal>
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} dataSource={data} rowKey={(record:any)=>{
+          return record.id
+        }}/>
       </div>
     );
   }

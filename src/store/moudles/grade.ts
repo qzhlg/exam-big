@@ -2,7 +2,8 @@ import {action,observe} from 'mobx'
 
 
 // 引入获取试题的请求
-import {getRoom,getClass,getMessage,addClass,deleteClass,UpdateMessage} from '@/service/grade'
+import {getRoom,getClass,getMessage,addClass,deleteClass,UpdateMessage,deleteRoom,addSiti} from '@/service/grade'
+
 class Room {
     // 获取房间号
     @action public async getRoom(params:any):Promise<any>{
@@ -34,8 +35,16 @@ class Room {
         return await deleteClass(grade_id)
     }       
     // 修改
-    @action public async UpdateMessage(grade_id:any):Promise<any>{
-        return await UpdateMessage(grade_id)
+    @action public async UpdateMessage(params:any):Promise<any>{
+        return await UpdateMessage(params)
+    }
+    @action public async deleteRoom(params:any):Promise<any>{
+        return await deleteRoom({data:params})
+      
+    }
+    @action public async addSiti(params:any):Promise<any>{
+        const result:any=await addSiti(params)
+       return result.data
     }
 }
 export default Room

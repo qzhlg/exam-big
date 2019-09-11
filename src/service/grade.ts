@@ -25,3 +25,9 @@ export let deleteClass=(params:any)=>{
 export let UpdateMessage=(params:any)=>{
     return request.put('/manger/grade/update',{data:params})
 }
+export let deleteRoom =(params:object)=>{
+    return request.delete('/manger/room/delete',params)
+}
+export let addSiti=(params:object)=>{
+    return request.post('/manger/room',params)
+}

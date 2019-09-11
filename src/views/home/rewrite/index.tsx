@@ -60,7 +60,7 @@ class Rewrite extends React.Component<Props>{
                     <Input value={title} placeholder="请输入题目标题，不超过20个字" className="ipt" onChange={this.change} />
                     <li>题目主题:</li>
 
-                    <Editor value={questions_stem} onChange={this.changeEditor}/>
+                    <Editor value={questions_stem} onChange={this.changeEditor} style={{height:'auto'}}/>
                     <li> 考试类型:</li>
                     <li>
 
@@ -82,7 +82,7 @@ class Rewrite extends React.Component<Props>{
                         </Select>
                     </li>
                     <li> 答案信息：</li>
-                    <Editor value={questions_answer} />
+                    <Editor value={questions_answer} style={{height:'auto'}}/>
                 </ul>
                 <li>
                     <Button className="submit" onChange={() => this.submit(questions_id)}>提交</Button>

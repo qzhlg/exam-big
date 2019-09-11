@@ -15,9 +15,10 @@ const columns = [
     dataIndex: '',
     key: 'x',
     render: () => 
-      <Card onClick={()=>{
+      <Card onClick={(id)=>{
         console.log('df')
-     
+        // this.props.history.push(`/manger/student/edit`,id)
+        
       }}><a>批卷</a></Card>
     ,
   },

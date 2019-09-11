@@ -137,7 +137,7 @@ class Addtext extends React.Component<Props>{
           <Input placeholder="请输入题目标题，不超过20个字" className="first_input" onChange={this.change} defaultValue={title}/>
 
           <p>题目主题:</p>
-          <Editor onChange={this.stemMethod} value={questions_stem} />
+          <Editor onChange={this.stemMethod} value={questions_stem} style={{height:'auto'}}/>
 
           <p>请选择考试类型:</p>
           <Select defaultValue="周考一" style={{ width: 200 }} className="select" onChange={this.changeexamed}>
@@ -157,7 +157,7 @@ class Addtext extends React.Component<Props>{
           </Select>
           <p>答案信息</p>
 
-          <Editor onChange={this.getanswer} value={questions_answer}/>
+          <Editor onChange={this.getanswer} value={questions_answer} style={{height:'auto'}}/>
 
           <Button className="submit" onClick={this.showModal} >
             提交
