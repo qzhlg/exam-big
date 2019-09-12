@@ -4,7 +4,6 @@ import Editor from 'for-editor'
 import { Button, Input, Select } from 'antd'
 const { Option } = Select;
 import { inject, observer } from 'mobx-react'
-
 interface Props {
     location: any,
     subject: any,
@@ -35,7 +34,7 @@ class Rewrite extends React.Component<Props>{
             title: e.target.value
         })
     }
-    public changefirst = (value: any) => {
+    public changeEditor = (value: any) => {
         this.setState({
             val: value
         })
@@ -61,7 +60,7 @@ class Rewrite extends React.Component<Props>{
                     <Input value={title} placeholder="请输入题目标题，不超过20个字" className="ipt" onChange={this.change} />
                     <li>题目主题:</li>
 
-                    <Editor value={questions_stem} />
+                    <Editor value={questions_stem} onChange={this.changeEditor}/>
                     <li> 考试类型:</li>
                     <li>
 
@@ -69,22 +68,21 @@ class Rewrite extends React.Component<Props>{
                             {typelist.length && typelist.map((item: any) => <Option value={item.exam_name} key={item.exam_id}>{item.exam_name}</Option>)}
                         </Select>
                     </li>
-                    <li>   科目类型：</li>
+                    <li>科目类型：</li>
                     <li>
 
                         <Select defaultValue="" style={{ width: 200 }} className="select">
                             {top_list.length && top_list.map((item: any, index) => <Option value={item.exam_name} key={index}> {item.subject_text}</Option>)}
                         </Select>
                     </li>
-                    <li>    题目类型:</li>
+                    <li>题目类型:</li>
                     <li>
-
                         <Select defaultValue="" style={{ width: 200 }}>
                             {typelist_bot.length && typelist_bot.map((item: any) => <Option value={item.questions_type_text} key={item.questions_type_id}>{item.questions_type_text}</Option>)}
                         </Select>
                     </li>
                     <li> 答案信息：</li>
-                    <Editor value={questions_answer} onChange={this.changefirst} />
+                    <Editor value={questions_answer} />
                 </ul>
                 <li>
                     <Button className="submit" onChange={() => this.submit(questions_id)}>提交</Button>

@@ -68,26 +68,43 @@ class Textlist extends React.Component<Info> {
       // typelist, top_list
       console.log(examlist)
     {examlist.map((item:any,index:number)=>{
+      // 开始时间
+      const start=item.start_time*1
+      const date=new Date(start)
+      const Y=date.getFullYear()+'-'
+      const M=(date.getMonth()+1<10?'0'+(date.getMonth()+1):date.getMonth()+1)+'-'
+      const D=date.getDate()+'  ';
+      const h=date.getHours()+':'
+      const m=date.getMinutes()+':'
+      const s=date.getSeconds()
+      const startDate=Y+M+D+h+m+s
+      // 结束时间
+      const endTime=item.end_time*1
+      const enddate=new Date(endTime)
+      const eY=enddate.getFullYear()+'-'
+      const eM=(enddate.getMonth()+1<10?'0'+(enddate.getMonth()+1):enddate.getMonth()+1)+'-'
+      const eD=enddate.getDate()+'  '
+      const eh=enddate.getHours()+':'
+      const em=enddate.getMinutes()+':'
+      const es=enddate.getSeconds()
+      const endDate =eY+ eM+eD+eh+em+es
       data.push({
         mesg:item.title,
         class:item.grade_name,
         creatperson:item.user_name,
-        starttime:item.start_time.toLocaleString(),
-        endtime:item.end_time.toLocaleString(),
-        domain:"删除",
+        starttime:startDate,
+        endtime:endDate,
+        domain:"详情",
         key:item.exam_exam_id
       })
     })}
       return (
-        <div className="box">
-         
+        <div className="box">          
          <h2>试卷列表</h2>
-         <div className="top_list">
-        
+         <div className="top_list">        
          <Select defaultValue="" style={{ width: 200 ,display:'inline'}} className="selecttype">
             {typelist.length && typelist.map((item: any) => <Option value={item.exam_name} key={item.exam_id}>{item.exam_name}</Option>)}
-          </Select>
-       
+          </Select>       
          <Select defaultValue="" style={{ width: 200,display:'inline' }} className="selecttype">
             {top_list.length && top_list.map((item: any, index:number) => <Option value={item.exam_name} key={index}> {item.subject_text}</Option>)}
           </Select>

@@ -4,29 +4,10 @@ import './weit.css'
 import { Table,Card,Select,Tabs} from 'antd';
 const TabPane=Tabs.TabPane
 const { Option } = Select;
-const columns = [
-  { title: '班级名', dataIndex: 'name', key: 'name' },
-  { title: '课程名称', dataIndex: 'age', key: 'age' },
-  { title: '阅卷状态', dataIndex: 'address', key: 'address' },
-  { title: '课程名称', dataIndex: 'kecheng', key: 'kecheng' },
-  { title: '成材率', dataIndex: 'chengcai', key: 'chengcai' },
-  {
-    title: '操作',
-    dataIndex: '',
-    key: 'x',
-    render: () => 
-      <Card onClick={(id)=>{
-        console.log('df')
-      }}><a>批卷</a></Card>
-    ,
-  },
-];
 
 function callback(key:any){
   console.log(key)
 }
-
-const data:any=[]
 interface Props {
   student:any,
   result: any,
@@ -42,38 +23,56 @@ class Weit extends React.Component<Props> {
   }
   public state = {
     list: [],
-    visible: false
+    visible: false,
+    data:[],
+    columns :[
+      { title: '班级名', dataIndex: 'grade_name', key: 'grade_name' },
+      { title: '课程名称', dataIndex: 'subject_text', key: 'subject_text' },
+      { title: '阅卷状态', dataIndex: 'address', key: 'address' },
+      { title: '课程名称', dataIndex: 'subject_text', key: 'subject_texts' },
+      { title: '成材率', dataIndex: 'room_text', key: 'room_text' },
+      {
+        title: '操作',
+        key: 'x',
+        render: (id:any,item:any)=>(
+          <p>
+            <a onClick={()=>{
+              console.log(id,item)
+              this.props.history.push({
+                pathname: `/exam/student/classmate/id=${id}`,
+                state: { id, item }
+              })
+              console.log(history)
+            }}>批卷</a>
+          </p>
+        )
+      }
+    ]
   }
   public componentDidMount() {
     this.getList()
   }
   public getList = async () => {
     const result = await this.props.student.getStudent()
-    console.log(result)
+    result.map((item:any,index:number)=>{
+      item.id=index
+      this.setState({
+        data:result
+      })
+    })
     this.setState({
       list: result
     })
   }
     public render() {
-      const {list}=this.state 
-      console.log(list)
-     {
-      list.map((item:any)=>{
-        data.push({
-          key:item.grade_id,
-          name:item.grade_name,
-          age:item.subject_text,
-          kecheng:item.subject_text,
-          chengcai:item.room_text,
-          domain:'批卷'
-        })
-      })}
-      
+      const {list,columns,data}=this.state 
+
       return (
         <div className="box">
             <h2 className="weit_Shang">待批班级</h2>
-              <Table columns={columns}dataSource={data} 
-            />
+              <Table columns={columns} dataSource={data} rowKey={(record: any) => {
+              return record.id
+          }}/>
             </div>
       );
     }

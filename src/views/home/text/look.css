@@ -40,8 +40,6 @@
 .bottom_con{
     height: 100%;
     border-top: 20px solid #f7f8f9;
- 
-    /* background: lavenderblush; */
     margin: 10px auto;
     border-radius: 10px;
     font-size: 12px;
@@ -49,7 +47,9 @@
 
 
 
-
+.active{
+    color: blue;
+}
 .search{
     width: 130px;
     height: 32px;
@@ -135,3 +135,7 @@
     color: blue;
     line-height: 40px;
 }
+.ant-btn{
+    display: flex;
+    align-items: center;
+} 

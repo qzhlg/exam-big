@@ -1,0 +1,20 @@
+.edit_box{
+    width:1271px;
+    height: 1060px;
+
+}
+.style_item{
+    min-height: 980px;
+    margin: auto;
+    padding: 40px;
+    text-align: center;
+    position: relative
+}
+.createText{
+    padding: 0 40px!important;
+    border-radius: 4px!important;
+    border: 0!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background: linear-gradient(-90deg,#4e75ff,#0139fd)!important;
+}

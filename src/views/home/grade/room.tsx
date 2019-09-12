@@ -6,7 +6,6 @@ const { Option } = Select;
 interface Props {
   getroom: any
 }
-
 @inject('getroom')
 @observer
 class Room extends React.Component<Props> {
@@ -64,7 +63,6 @@ class Room extends React.Component<Props> {
       visible: false,
     });
   };
-
    // 控制input的值
    public changevalue = (e: any) => {
     const { room_text } = this.state
@@ -77,27 +75,21 @@ class Room extends React.Component<Props> {
   public getroommethod = async () => {
     const roomdata = await this.props.getroom.getRoom()
     console.log(roomdata)
-    roomdata.map((item: any, index: number) => {
-    
+    roomdata.map((item: any, index: number) => {   
       this.setState({
         data: roomdata
       })
     })
     this.setState({
       list: roomdata,
-
     })
   }
   // 删除
   public delete=async(room_id:any)=>{
     await this.props.getroom.deleteRoom({room_id})
   }
-
- 
-
   public handleChange = (value: any) => {
     console.log(`selected ${value}`);
-
   }
   public render() {
     const { list, columns, data ,room_text} = this.state
@@ -114,8 +106,7 @@ class Room extends React.Component<Props> {
           onCancel={this.handleCancel}
         >
           <div>*教室号</div>
-          <Input placeholder="教室号" onChange={this.changevalue} value={room_text}/>
-         
+          <Input placeholder="教室号" onChange={this.changevalue} value={room_text}/> 
         </Modal>
         <Table columns={columns} dataSource={data} />
       </div>

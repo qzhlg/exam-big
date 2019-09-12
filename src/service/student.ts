@@ -8,3 +8,6 @@ export const getStudent=(params:object)=>{
 export const deleteStudent=(params:object)=>{
     return request.delete('/manger/student/:id',params)
 }
+export const studentTiao=(params:object)=>{
+    return request.get('/exam/student/t27znv-gu7azm-qpq9ai-laaf9m',{params})
+}
