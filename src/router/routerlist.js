@@ -11,11 +11,11 @@ import Gread from '@/views/home/grade/grade';
 import Room from '@/views/home/grade/room';
 import Student from '@/views/home/grade/students';
 import Weit from '@/views/home/mark/weit';
-import Classmate from '@/views/home/mark/classmate'
+
 import Detail from '@/views/home/detail';
 import Rewrite from '@/views/home/rewrite';
 import Edit from '@/views/home/exam/edit';
-
+import Classmate from '@/views/home/mark/classmate'
 
 
 
@@ -72,7 +72,7 @@ const routes = [{
             path:'/home/exam/edit',
             component:Edit
         },{
-            path:'/home/weit/classmate',
+            path:'/home/classmate/:id',
             component:Classmate
         }
     ]

@@ -34,15 +34,16 @@ class Weit extends React.Component<Props> {
       {
         title: '操作',
         key: 'x',
-        render: (id:any,item:any)=>(
+        render: (item:any)=>(
           <p>
             <a onClick={()=>{
-              console.log(id,item)
+              const {grade_id}=item
+              console.log(item)
               this.props.history.push({
-                pathname: `/exam/student/classmate/id=${id}`,
-                state: { id, item }
+                pathname: `/home/classmate/id=${grade_id}`,
+                state: { grade_id, item }
               })
-              console.log(history)
+              
             }}>批卷</a>
           </p>
         )

@@ -148,7 +148,6 @@ class Addexam extends React.Component<Props> {
           <p>设置题量</p>
           <InputNumber min={1} max={10}  onChange={this.changenumber}/>
           <p>考试时间</p>
-
           <div>
             <DatePicker
               disabledDate={this.disabledStartDate}

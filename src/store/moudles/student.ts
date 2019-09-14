@@ -1,6 +1,7 @@
 import {observable,action} from 'mobx'
 
 import {getStudent,deleteStudent,studentTiao} from '@/service/student'
+
 class Student {
     
     @action public async getStudent(params:any):Promise<any>{
