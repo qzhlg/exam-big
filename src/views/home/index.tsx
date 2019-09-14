@@ -16,7 +16,7 @@ interface Prorout {
 @observer
 class Home extends React.Component<Prorout>{
   public componentDidMount(){
-    this.getshowTitle()
+    // this.getshowTitle()
   }
   public state={
     title:[],

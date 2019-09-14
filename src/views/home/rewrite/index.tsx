@@ -12,11 +12,11 @@ interface Props {
 @inject('subject', 'question')
 @observer
 class Rewrite extends React.Component<Props>{
-    public state = {
+    public state = {    
         typelist: [],
         typelist_bot: [],
         top_list: [],
-        val: '',
+        val:'',
         title: ''
     }
     public getList = async () => {
@@ -45,7 +45,6 @@ class Rewrite extends React.Component<Props>{
     }
     public componentDidMount() {
         this.getList()
-
     }
     public render() {
         const { typelist, top_list, typelist_bot } = this.state
@@ -85,7 +84,7 @@ class Rewrite extends React.Component<Props>{
                     <Editor value={questions_answer} style={{height:'auto'}}/>
                 </ul>
                 <li>
-                    <Button className="submit" onChange={() => this.submit(questions_id)}>提交</Button>
+                    <Button className="submit" onClick={() => this.submit(questions_id)}>提交</Button>
                 </li>
             </div>
         );

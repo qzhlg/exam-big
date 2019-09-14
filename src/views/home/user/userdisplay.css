@@ -23,6 +23,11 @@
     align-items: center;
     flex-wrap: wrap;
 }
+.userBton .active{
+    border: 1px blue solid;
+    color: blue;
+}
+
 .userSu{
     width: 100%;
     height:70px;
@@ -74,8 +79,4 @@
     justify-content: space-between;
     padding: 0 10px;
     box-sizing: border-box;
-}
-.active{
-    border: 1px blue solid;
-    color: blue;
 }

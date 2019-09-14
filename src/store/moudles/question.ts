@@ -26,8 +26,8 @@ class Question {
     }
     // 更新试题
     @action public async Updata(id:any):Promise<any>{
-        const result:any=await Updata(id)
-        return result
+      
+        return  await Updata(id)
     }
 }
 export default Question

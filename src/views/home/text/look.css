@@ -13,7 +13,9 @@
     flex-wrap: wrap;
 }
 
-
+.top_cont .active{
+    color: blue;
+}
 .top_content span{
     display: flex; 
     justify-content: space-between;
@@ -47,9 +49,7 @@
 
 
 
-.active{
-    color: blue;
-}
+
 .search{
     width: 130px;
     height: 32px;

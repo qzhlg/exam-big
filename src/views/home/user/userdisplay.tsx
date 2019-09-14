@@ -41,7 +41,7 @@ class Userdisplay extends React.Component<Props> {
     index: '',
     data: [],
     current: 0,
-    title: '',
+    title: '',  
     columns: [
       [
         {

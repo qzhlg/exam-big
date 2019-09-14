@@ -15,5 +15,6 @@ export let addType=(params:object)=>{
 }
 // 更新试题
  export let Updata=(id:any)=>{
+    
      return request.put('/exam/questions/update',id)
  }
