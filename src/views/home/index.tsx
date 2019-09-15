@@ -44,9 +44,9 @@ class Home extends React.Component<Prorout>{
         
       <Leftaside/>
           <Layout style={{ height: '100%',marginLeft: 200 }}>
-            <Header style={{ background: '#fff', padding: 0 }} >
-              1
-            </Header>
+            <Header style={{ background: '#fff', padding: 0 }} />
+              
+          
             <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
               <Breadcrumb style={{ margin: '16px 0' }}/>
                 {/* <Breadcrumb style={{ margin: '16px 0' }}>

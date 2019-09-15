@@ -46,7 +46,7 @@ class Addtext extends React.Component<Props>{
     const typeresult = await this.props.subject.getExamType()
     const subresult = await this.props.subject.getSubject()
     const userinfo=await this.props.user.usermsg()
-    console.log(userinfo)
+    console.log(userinfo.data.user_id)
     this.setState({
       typelist: typeresult,
       typelist_bot: result,

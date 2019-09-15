@@ -49,7 +49,7 @@ class User {
         this.userInfo = userInfo.data;
         this.avatar = userInfo.data.avatar;
         this.getViewAuthority();
-        // return userInfo
+        return userInfo
         
        
     }
