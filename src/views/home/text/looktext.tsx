@@ -124,7 +124,6 @@ class Looktext extends React.Component<Props>{
               >
                 {item.subject_text}
               </span>)}
-
           </div>
           <div className="m-input">
             <span>
@@ -139,10 +138,9 @@ class Looktext extends React.Component<Props>{
                 {typelist_bot.length && typelist_bot.map((item: any) => <Option value={item.questions_type_id} key={item.questions_type_id}>{item.questions_type_text}</Option>)}
               </Select>
             </span>
-            <span><Button icon="search" className="search" onClick={this.search}>查询</Button></span>
+            <span><Button  className="search" onClick={this.search}>查询</Button></span>
           </div>
         </div>
-
         <div className="content_look">
           <div className="list-subject-item">
             {list &&
@@ -179,7 +177,7 @@ class Looktext extends React.Component<Props>{
           </div>
 
         </div>
-
+              
       </div>
     );
   }

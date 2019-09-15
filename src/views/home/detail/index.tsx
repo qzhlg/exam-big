@@ -6,8 +6,6 @@ interface Props {
     getdetail: any,
     location:any
 }
-
- 
 class Detail extends React.Component<Props>{
   
     public render() {
@@ -32,7 +30,6 @@ class Detail extends React.Component<Props>{
                     </div>
                     <div className="detail_right">
                         答案信息：
-                        {/* {questions_answer} */}
                         <Editor value={questions_answer} style={{height:'auto'}}/>
                     </div>
                 </div>

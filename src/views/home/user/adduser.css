@@ -1,18 +1,25 @@
-.box{
+.box {
     width: 100%;
     height: auto;
 
 }
-.content{
+
+.content {
     display: flex;
     flex-wrap: wrap;
     border-left: 1px solid #ccc;
     border-top: 1px solid #ccc;
-    
+
 }
-.item_user,.item_id,.item_api,.item_add,.item_set,.item_setview{
-    height: 335px;
-  
+
+.item_user,
+.item_id,
+.item_api,
+.item_add,
+.item_set,
+.item_setview {
+    height: 290px;
+
     float: left;
     width: 33.3%;
     border-right: 1px solid #ccc;
@@ -21,23 +28,27 @@
     padding: 10px;
     cursor: pointer;
 }
+
 .btn {
     border-color: #0139FD;
     box-shadow: none !important;
-} 
-.sure{
-    padding: 0 40px!important;
-    border-radius: 4px!important;
-    border: 0!important;
-    font-size: 14px!important;
-    color: #fff!important;
-    background: linear-gradient(-90deg,#4e75ff,#0139fd)!important;
 }
-.input{
-    margin-bottom: 20px
+
+.sure {
+    padding: 0 40px !important;
+    border-radius: 4px !important;
+    border: 0 !important;
+    font-size: 14px !important;
+    color: #fff !important;
+    background: linear-gradient(-90deg, #4e75ff, #0139fd) !important;
 }
-.cancel{
-   margin-left: 8px;
-   padding: 0 40px!important;
-   font-size: 14px!important;
+
+.input {
+    margin-bottom: 16px
+}
+
+.cancel {
+    margin-left: 8px;
+    padding: 0 40px !important;
+    font-size: 14px !important;
 }

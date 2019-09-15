@@ -92,7 +92,7 @@ class Textcluster extends React.Component<Props> {
       })
     }
     return (
-      <div className="box">
+      <div className="box" style={{background:'#fff'}}>
         <h2>试题分类</h2>
         <Button type="primary" onClick={this.showModal} className="add_btn">
           +添加试题

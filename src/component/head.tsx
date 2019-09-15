@@ -60,8 +60,6 @@ class Head extends React.Component<InfoProp> {
     }
 
     public handleChange(info: any) {
-        // console.log('info....', info);
-
         if (info.file.status === "done") {
             // 上传成功
             this.props.user.changeAvatar(info.file.response.data[0].path);

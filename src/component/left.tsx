@@ -29,7 +29,7 @@ class Leftaside extends React.Component {
                             key="sub1"
                             title={
                                 <span>
-                                    <Icon type="user" />
+                                    <Icon  type="shop" />
                                     <span>试题管理</span>
                                 </span>
                             }
@@ -67,7 +67,7 @@ class Leftaside extends React.Component {
                             key="sub3"
                             title={
                                 <span>
-                                    <Icon type="team" />
+                                    <Icon type="upload"  />
                                     <span>考试管理</span>
                                 </span>
                             }
@@ -83,7 +83,7 @@ class Leftaside extends React.Component {
                             key="sub4"
                             title={
                                 <span>
-                                    <Icon type="user" />
+                                    <Icon type="bar-chart" />
                                     <span>班级管理</span>
                                 </span>
                             }

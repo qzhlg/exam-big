@@ -52,7 +52,6 @@ class Student extends React.Component<Info> {
   }
   public getdata= async()=>{
     const messagedata=await this.props.getmessage.getMessage()
-    console.log(messagedata)
     this.setState({
       list:messagedata
     })
@@ -77,7 +76,7 @@ class Student extends React.Component<Info> {
           domain:"删除"
         })
       })}
-      console.log(list)
+     
       return (
         <div className="box">
         <h2>学生管理</h2>
@@ -87,19 +86,22 @@ class Student extends React.Component<Info> {
            onChange={this.handleSelectChange}
            style={{ width: 120 }}
           >
-            {list.map((item:any)=><Option value="" key={item.room_id}>{item.room_text}</Option>)}
+            {list.map((item:any)=><Option value={item.room_id} key={item.room_id}>{item.room_text}</Option>)}
           </Select>
           <Select
              defaultValue="请选择班级名"
             onChange={this.handleSelectChange}
             style={{ width: 120 ,marginLeft:20}}
           >
-            {list.map((item:any,index:number)=><Option value="" key={index}>{item.grade_name}</Option>)}
+            {list.map((item:any,index:number)=><Option value={item.grade_id} key={index}>{item.grade_name}</Option>)}
           </Select>
           <Button className="add_btns">搜索</Button>
           <Button className="add_btns" >重置</Button>
         </div>
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} dataSource={data} rowKey={(record:any)=>{
+     
+          return record.card
+        }}/>
         </div>
       );
     }
