@@ -4,10 +4,18 @@ import { NavLink } from 'react-router-dom'
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 class Leftaside extends React.Component {
+    public  state = {
+        collapsed: false
+      }  
+    
+     public toggleCollapsed = ()=>{
+        this.setState({
+          collapsed: !this.state.collapsed
+        })
+      }
     public render() {
         return (
-            <div className="box-left">
-                <Sider
+                <Sider  collapsed={this.state.collapsed}
                     style={{
                         overflow: 'auto',
                         height: '100vh',
@@ -107,8 +115,8 @@ class Leftaside extends React.Component {
 
                     </Menu>
                 </Sider>
-            </div>
-        );
+       
+        )
     }
 }
 export default Leftaside

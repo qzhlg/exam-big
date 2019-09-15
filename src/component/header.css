@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    height: 64px;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.divider {
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid #eee;
+}
+
+.logo {
+    width: 120px;
+}
+
+.userInfo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

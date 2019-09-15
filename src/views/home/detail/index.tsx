@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './detail.css'
 import Editor from 'for-editor'
-
+// const ReactMarkdown = require('react-markdown')
 interface Props {
     getdetail: any,
     location:any

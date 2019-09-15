@@ -1,13 +1,12 @@
 
 .detail_content{
     width: 100%;
-    height: 1000px;
+    height: auto;
    margin: auto;
    display: flex;
 }
 .detail_left{
-    background: #fff;
-   
+    background: #ffffff;
     flex: 6;
     border-radius: 10px;
 }
@@ -15,8 +14,6 @@
     height: 40px;
 }
 .detail_right{
-    
-   
     flex: 4;
     margin-left: 10px;
     border-radius: 10px;
