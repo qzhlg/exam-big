@@ -49,6 +49,7 @@ class Textcluster extends React.Component<Props> {
     this.setState({
       list: result
     })
+    console.log(result)
   }
   // 控制input的值
   public changevalue = (e: any) => {
@@ -59,8 +60,7 @@ class Textcluster extends React.Component<Props> {
     })
   }
   // 控制对话框显示隐藏
-  public showModal = () => {
-   
+  public showModal = () => {  
     this.setState({
       visible: true,
     });
@@ -76,7 +76,6 @@ class Textcluster extends React.Component<Props> {
   };
   // 取消
   public handleCancel = (e: any) => {
-   
     this.setState({
       visible: false
     });
@@ -108,7 +107,6 @@ class Textcluster extends React.Component<Props> {
         <Table columns={columns} dataSource={data} rowKey={(record: any) => {
           return record.id
         }} />
-
       </div>
     );
   }

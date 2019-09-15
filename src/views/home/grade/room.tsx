@@ -6,7 +6,10 @@ const { Option } = Select;
 interface Props {
   getroom: any
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 19f5729dc05219adbcae3a38326660fff2130a20
 @inject('getroom')
 @observer
 class Room extends React.Component<Props> {
@@ -18,7 +21,7 @@ class Room extends React.Component<Props> {
     list: [],
     visible: false,
     data: [],
-    room_text:'',
+    room_text: '',
     columns: [
       {
         title: '教室号',
@@ -27,12 +30,12 @@ class Room extends React.Component<Props> {
       },
       {
         title: '操作',
-    
+
         key: 'domain',
         render: (test: any) => (
           <p>
             <span onClick={() => {
-              const {room_id}= test
+              const { room_id } = test
               this.delete(room_id)
             }}>
               删除
@@ -50,7 +53,7 @@ class Room extends React.Component<Props> {
   };
   // 确定
   public handleOk = (e: any) => {
-    const { room_text} = this.state
+    const { room_text } = this.state
     const params = { room_text }
     const addresult = this.props.getroom.addSiti(params)
     this.setState({
@@ -64,43 +67,41 @@ class Room extends React.Component<Props> {
       visible: false,
     });
   };
-
-   // 控制input的值
-   public changevalue = (e: any) => {
+  // 控制input的值
+  public changevalue = (e: any) => {
     const { room_text } = this.state
     this.setState({
       room_text: e.target.value
     })
     console.log(room_text)
   }
-   // 获取后台请求的数据
+  // 获取后台请求的数据
   public getroommethod = async () => {
     const roomdata = await this.props.getroom.getRoom()
-   
+
     roomdata.map((item: any, index: number) => {
-    
+
       this.setState({
         data: roomdata
       })
     })
     this.setState({
       list: roomdata,
-
     })
   }
   // 删除
-  public delete=async(room_id:any)=>{
-    await this.props.getroom.deleteRoom({room_id})
+  public delete = async (room_id: any) => {
+    await this.props.getroom.deleteRoom({ room_id })
   }
 
- 
+
 
   public handleChange = (value: any) => {
     console.log(`selected ${value}`);
 
   }
   public render() {
-    const { list, columns, data ,room_text} = this.state
+    const { list, columns, data, room_text } = this.state
     return (
       <div className="box">
         <h2>教室管理</h2>
@@ -114,8 +115,8 @@ class Room extends React.Component<Props> {
           onCancel={this.handleCancel}
         >
           <div>*教室号</div>
-          <Input placeholder="教室号" onChange={this.changevalue} value={room_text}/>
-         
+          <Input placeholder="教室号" onChange={this.changevalue} value={room_text} />
+
         </Modal>
         <Table columns={columns} dataSource={data} />
       </div>

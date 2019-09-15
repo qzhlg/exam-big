@@ -136,3 +136,7 @@
     color: blue;
     line-height: 40px;
 }
+.ant-btn{
+    display: flex;
+    align-items: center;
+} 

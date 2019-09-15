@@ -11,13 +11,11 @@ interface Props {
 }
 @inject('getclass')
 @observer
-
 class Gread extends React.Component<Props, any> {
   public componentDidMount() {
     this.getclassmethod()
   }
   public state = {
-
     list: [],
     data: [],
     visible: false,
@@ -104,7 +102,6 @@ class Gread extends React.Component<Props, any> {
     }
   
   };
-
   public handleOk = async (e: any) => {
     this.setState({
       visible: false
@@ -151,7 +148,6 @@ class Gread extends React.Component<Props, any> {
     })
     console.log(classdata)
   }
-
   // 删除
   public delete = async (grade_id: any) => {
     await this.props.getclass.deleteClass({ grade_id })
@@ -175,9 +171,7 @@ class Gread extends React.Component<Props, any> {
             <Form.Item label="班级名">
               <Input placeholder="请输入班级名" value={grade_name} onChange={this.changeInput} disabled={disabled} />
             </Form.Item>
-
             <Form.Item label="教室号">
-
               <Select
                 placeholder="请选择教室号"
                 onChange={this.roomId}

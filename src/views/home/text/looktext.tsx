@@ -12,7 +12,6 @@ interface Props {
 }
 @inject('allquestion', 'subject', 'question')
 @observer
-
 class Looktext extends React.Component<Props>{
   public componentDidMount() {
     this.getList()
@@ -70,7 +69,6 @@ class Looktext extends React.Component<Props>{
   public search = (params1: any) => {
     const { subject_id, exam_id, questions_type_id } = this.state
     let params={};
-    
     if (subject_id && exam_id && questions_type_id) {
       params={subject_id , exam_id , questions_type_id}
       this.getDate(params)
@@ -108,7 +106,6 @@ class Looktext extends React.Component<Props>{
     const { list, top_list, typelist, typelist_bot, acIndex } = this.state
     return (
       <div className="box">
-
         <h2>查看试题</h2>
         <div className="top_content">
           <div className="top_cont">

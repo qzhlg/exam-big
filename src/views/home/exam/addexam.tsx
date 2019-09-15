@@ -20,11 +20,9 @@ interface Props {
   user: any,
   history:any
 }
-
 @inject('question', 'subject', 'getexam', 'user')
 @observer
 class Addexam extends React.Component<Props> {
-
   constructor(props: any) {
     super(props)
     this.getList()
@@ -42,7 +40,6 @@ class Addexam extends React.Component<Props> {
     endValue: moment().startOf('day'),
     endOpen: false,
   }
-
   public disabledStartDate = (startValue: any) => {
     const { endValue } = this.state;
     if (!startValue || !endValue) {
@@ -50,7 +47,6 @@ class Addexam extends React.Component<Props> {
     }
     return startValue.valueOf() > endValue.valueOf();
   };
-
   public disabledEndDate = (endValue: any) => {
     const { startValue } = this.state;
     if (!endValue || !startValue) {
@@ -58,18 +54,14 @@ class Addexam extends React.Component<Props> {
     }
     return endValue.valueOf() <= startValue.valueOf();
   };
-
   public onChange = (field: any, value: any) => {
     this.setState({
       [field]: value,
     });
   };
-
   public onStartChange = (value: any) => {
     this.onChange('startValue', value);
   };
-
-
   public onEndChange = (value: any) => {
     this.onChange('endValue', value);
   };
@@ -156,7 +148,6 @@ class Addexam extends React.Component<Props> {
           <p>设置题量</p>
           <InputNumber min={1} max={10}  onChange={this.changenumber}/>
           <p>考试时间</p>
-
           <div>
             <DatePicker
               disabledDate={this.disabledStartDate}

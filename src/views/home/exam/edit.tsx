@@ -2,8 +2,7 @@ import * as React from 'react'
 import './edit.css'
 import {Button} from 'antd'
 interface Props{
-    location:any,
-  
+    location:any,  
 }
 class Edit  extends React.Component<Props>{
     public render(){
