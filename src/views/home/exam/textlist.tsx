@@ -90,11 +90,11 @@ class Textlist extends React.Component<Info> {
       const endDate =eY+ eM+eD+eh+em+es
       data.push({
         mesg:item.title,
-        class:item.grade_name,
+        class:item.grade_name,  
         creatperson:item.user_name,
         starttime:startDate,
         endtime:endDate,
-        domain:"详情",
+        domain:"详情",  
         key:item.exam_exam_id
       })
     })}
