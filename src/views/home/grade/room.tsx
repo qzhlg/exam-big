@@ -6,10 +6,6 @@ const { Option } = Select;
 interface Props {
   getroom: any
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 19f5729dc05219adbcae3a38326660fff2130a20
 @inject('getroom')
 @observer
 class Room extends React.Component<Props> {

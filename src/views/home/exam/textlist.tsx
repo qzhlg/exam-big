@@ -96,7 +96,7 @@ class Textlist extends React.Component<Info> {
         endtime:endDate,
         domain:"详情",  
         key:item.exam_exam_id
-      })
+      })  
     })}
       return (
         <div className="box">          

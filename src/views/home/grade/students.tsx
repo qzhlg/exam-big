@@ -105,5 +105,5 @@ class Student extends React.Component<Info> {
       );
     }
   }
-}
+
 export default Student
