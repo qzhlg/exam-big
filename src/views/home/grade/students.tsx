@@ -64,6 +64,11 @@ class Student extends React.Component<Info> {
   }
   public getdata= async()=>{
     const messagedata=await this.props.getmessage.getMessage()
+    messagedata.map((item:any)=>{
+      this.setState({
+        data:messagedata
+      })
+    })
     this.setState({
       list: messagedata
     })
