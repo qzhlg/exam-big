@@ -12,4 +12,5 @@
     font-size: 14px!important;
     color: #fff!important;
     background: linear-gradient(-90deg,#4e75ff,#0139fd)!important;
+    float: left;
 }

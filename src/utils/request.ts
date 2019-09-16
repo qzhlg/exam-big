@@ -5,7 +5,7 @@ import {getToken} from '@/utils/index'
 // import {HttpInfo} from '@/types/index'
 const instance = axios.create({
     // baseURL: 'http://169.254.19.71:7001',
-    baseURL:'http://169.254.19.71:7001',
+    baseURL:'http://localhost:7001',
     timeout: 1000,
     headers: {'authorization':getToken()}
 });
