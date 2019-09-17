@@ -3,9 +3,15 @@ import {AxiosResponse} from 'axios/index';
 import {message} from 'antd'
 import {getToken} from '@/utils/index'
 // import {HttpInfo} from '@/types/index'
+const Url={
+  '123.206.55.50':"//exam.jasonandjay.com",
+  '127.0.0.1:3000':'//169.254.19.71:7001',
+  "jasonandjay.com":"//exam.jasonandjay.com"
+}
+
 const instance = axios.create({
     // baseURL: 'http://169.254.19.71:7001',
-    baseURL:'http://localhost:7001',
+    baseURL:Url[window.location.host],
     timeout: 1000,
     headers: {'authorization':getToken()}
 });

@@ -78,7 +78,6 @@ class Gread extends React.Component<Props, any> {
     this.setState({
       visible: true,
     })
-    console.log(e, '--------------------')
     if (type === "reset") {
       this.setState({
         disabled: true,// input失焦

@@ -38,7 +38,6 @@ class Login extends React.Component<Props, any> {
   };
   public render() {
     const { getFieldDecorator } = this.props.form
-    console.log(this.props.form)
     const { user_name, user_pwd } = this.props.user.account
     return (
       <div className='form-box'>

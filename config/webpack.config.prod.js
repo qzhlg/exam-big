@@ -370,6 +370,17 @@ module.exports = {
       tsconfig: paths.appTsProdConfig,
       tslint: paths.appTsLint,
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: function (module) {
+      // This prevents stylesheet resources with the .css or .scss extension
+      // from being moved from their original chunk to the vendor chunk
+      if(module.resource && (/^.*\.(css|scss|less)$/).test(module.resource)) {
+          return false;
+      }
+      return module.context && module.context.includes('node_modules');
+      }
+  })
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

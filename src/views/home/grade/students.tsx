@@ -110,7 +110,7 @@ class Student extends React.Component<Info> {
 
     })
   }
-  public   exportExcel = () => {
+  public exportExcel = () => {
     // 把table里面的数据生成worksheet
     let wroksheet = XLSX.utils.json_to_sheet(this.state.data)
     // 把worksheet放在workbook里
@@ -121,22 +121,15 @@ class Student extends React.Component<Info> {
     XLSX.utils.book_append_sheet(workbook, wroksheet);
     XLSX.utils.book_append_sheet(workbook, wroksheet);
 
-
-
     XLSX.writeFile(workbook, '学生名单.xlsx');
   }
-  public  uploadExcel = (e: any) => {
-    // console.log('e...', e.target, e.target.files);
+  public uploadExcel = (e: any) => {
     let reader = new FileReader();
     reader.onload = function (es: any) {
       let dataed = new Uint8Array(es.target.result);
       let workbook = XLSX.read(dataed, { type: 'array' });
-      console.log('workbook...', workbook);
-
       let ws = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
-      console.log('dataed...', ws);
     }
-
     reader.readAsArrayBuffer(e.target.files[0]);
   }
   public render() {

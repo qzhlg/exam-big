@@ -44,7 +44,7 @@ class Addtext extends React.Component<Props>{
     const typeresult = await this.props.subject.getExamType()
     const subresult = await this.props.subject.getSubject()
     const userinfo=await this.props.user.usermsg()
-    console.log(userinfo.data.user_id)
+  
     this.setState({
       typelist: typeresult,
       typelist_bot: result,
@@ -98,7 +98,7 @@ class Addtext extends React.Component<Props>{
   public handleOk = async (e: any) => {   
     const { questions_type_id,questions_stem,subject_id,exam_id,user_id,questions_answer,title } = this.state 
     const params={questions_type_id,questions_stem,subject_id,exam_id,user_id,questions_answer,title }
-    console.log(params)
+   
     const result=await this.props.addtext.addText(params)
     this.props.history.replace('/')
     this.setState({
